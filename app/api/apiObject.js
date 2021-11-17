@@ -2,7 +2,7 @@ import { create } from 'apisauce';
 import AuthStore from '../auth/authStorage';
 
 const apiObject = create({
-    baseURL: 'http://10.206.11.160:3000/api',
+    baseURL: 'http://10.10.20.80:3000/api',
     //baseURL: 'https://glacial-shore-82980.herokuapp.com/api'
 });
 

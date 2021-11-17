@@ -7,6 +7,7 @@ const fontSize = {
     heading:15,
     text:12,
     input:15,
+    button:15,
 }
 const fontWiegth = {
     heading:'700',

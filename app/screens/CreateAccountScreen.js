@@ -8,6 +8,7 @@ import AppText from '../components/AppText';
 import colors from '../config/colors';
 import fontConfig from '../config/fonts';
 import AppButton from '../components/AppButton';
+import userApi from '../api/userApi';
 
 
 const validationSchema= Yup.object().shape({
@@ -20,15 +21,21 @@ function createAccountScreen(props) {
 const [isErr, setIsErr] = useState(false); 
 const [Err, setErr] = useState('Account already exists.');
 
-const createAccount = async ()=>{
-    setIsErr(true);
-    setErr('Account already exists.');
+const createAccount = async ({email,firstName,password})=>{
+    const result=await userApi.signUp(email,firstName,password);
+    if(!result.ok){
+    setErr(result.data);
+    return setIsErr(true);
+    }
+    setIsErr(false);
+    
+    
 }
 
     return (
         <View style={styles.mainContainer}>
             <Formik
-            initialValues={{email:'', password:'', name:''}}
+            initialValues={{email:'', password:'', firstName:''}}
             onSubmit={createAccount}
             validationSchema={validationSchema}
             >
@@ -50,9 +57,9 @@ const createAccount = async ()=>{
                 <InputField
                 autoCapitalize='none'
                 autoCorrent={false}
-                placeholder='Name'
-                onChangeText={handleChange('name')}
-                onBlur={() => setFieldTouched('name')}
+                placeholder='First Name'
+                onChangeText={handleChange('firstName')}
+                onBlur={() => setFieldTouched('firstName')}
                 />
                 {touched.name  && errors.name &&  <AppText  text={errors.name} color={colors.danger} fontSize={fontConfig.fontSize.text} paddingLeft={15}/>}
 
@@ -82,7 +89,7 @@ const styles = StyleSheet.create({
         justifyContent:'center',
         alignItems: 'center',
         padding:10,
-        //backgroundColor:'grey'
+        backgroundColor:colors.screenBackgroung,
     }
 })
 

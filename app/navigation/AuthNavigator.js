@@ -11,7 +11,7 @@ const Stack=createStackNavigator();
 const AuthNavigator=()=>(
     <Stack.Navigator
     screenOptions={{
-        //headerShown:false,
+        headerShown:false,
         presentation:'modal',
         gestureEnabled:true
     }}>

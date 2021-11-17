@@ -18,18 +18,16 @@ const styles = StyleSheet.create({
     container:{
         width:'100%',
         //backgroundColor:colors.primary,
-        borderColor:colors.primary,
-        borderWidth:1,
+        backgroundColor:colors.primary,
         justifyContent:'center',
         alignItems: 'center',
-        borderRadius:5,
-        padding:10,        
+        borderRadius:8,
+        padding:17,        
     },
     title:{
-        color:colors.primary,
-        fontSize:20,
+        color:colors.screenBackgroung,
+        fontSize:fontConfig.fontSize.button,
         fontWeight: fontConfig.fontWiegth.bold,
-
     }
 })
 export default AppButton;
