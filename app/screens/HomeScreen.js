@@ -10,8 +10,8 @@ function HomeScreen(props) {
     return (
         <View style={styles.container}>
           <View style={styles.topView}>
-              <Text style={styles.Text}>Business: {user.selectedBusiness}</Text>
-              <Text style={styles.Text}>Logged-in as: {user.firstName + ' ' + user.lastName}</Text>
+              <Text style={styles.Text}>Business: {'user.selectedBusiness'}</Text>
+              <Text style={styles.Text}>Logged-in as: {'user.firstName' + ' ' + 'user.lastName'}</Text>
           </View>
           <View style={styles.middleView}>
               <View style={styles.iconView}>

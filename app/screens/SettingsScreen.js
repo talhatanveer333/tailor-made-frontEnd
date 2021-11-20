@@ -29,8 +29,8 @@ const {user, setUser}=useContext(AuthContext);
                             <Entypo name='camera' size={15} style={styles.icon} /> 
                         </View>
                         <View style={styles.contentContainer}>
-                            <Text style={styles.name}>{user.firstName + ' ' + user.lastName}</Text>
-                            <Text style={styles.email}>{user.email}</Text>
+                            <Text style={styles.name}>{'Talha' + ' ' + 'Tanveer'}</Text>
+                            <Text style={styles.email}>{'talhatanveer333@gmail.com'}</Text>
                         </View>
                 </View>
                     

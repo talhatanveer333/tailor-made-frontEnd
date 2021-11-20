@@ -16,7 +16,7 @@ const {user, setUser}=useContext(AuthContext);
                 <Entypo name='cross' size={35} color='snow' style={styles.cross}/>
                 <MaterialCommunityIcons name='hexagon' size={80} color='snow' style={styles.mainIcon} />
                 <Ionicons name='md-cube' size={40} color='#E91E63' style={styles.subIcon} />
-                <Text style={styles.headingTitle}>{user.selectedBusiness}</Text>
+                <Text style={styles.headingTitle}>{'Smart Tailor'}</Text>
         </View>
     );
 }

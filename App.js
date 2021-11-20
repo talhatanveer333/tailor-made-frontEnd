@@ -44,7 +44,7 @@ return(
       <CartContext.Provider value={{cart, setCart}}>
         <NavigationContainer>
           {/* {user? <AppNavigator /> : <AuthNavigator />} */}
-          <AuthNavigator />
+          <AppNavigator />
         </NavigationContainer>
         </CartContext.Provider>
     </AuthContext.Provider>

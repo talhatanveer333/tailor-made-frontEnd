@@ -1,9 +1,10 @@
 const fontFamily = {
     primary:'Roboto',
-    secondary:'robototto'
-
+    secondary:'robototto',
+    funky:'sans-serif-thin',
 }
 const fontSize = {
+    headingPro:23,
     heading:15,
     text:12,
     input:15,
