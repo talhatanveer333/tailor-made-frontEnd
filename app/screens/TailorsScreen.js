@@ -1,25 +1,20 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 
-import TailorCard from '../components/TailorCard';
+import TailorsList from '../components/TailorsList';
 
 function TailorsScreen(props) {
     return (
         <View style={styles.container}>
-            <TailorCard heading='Basheer Tailors' subHeading='Satyana Road' price='1400'/>
-            <TailorCard heading='Basheer Tailors' subHeading='Satyana Road' price='1400'/>
-            <TailorCard heading='Basheer Tailors' subHeading='Satyana Road' price='1400'/>
-            <TailorCard heading='Basheer Tailors' subHeading='Satyana Road' price='1400'/>
-            <TailorCard heading='Basheer Tailors' subHeading='Satyana Road' price='1400'/>
+            <TailorsList />
         </View>
     );
 }
 
 const styles = StyleSheet.create({
     container:{
-        flex:1,
-        alignItems:'center',
-        justifyContent:'center',
+    paddingHorizontal:10,
+    backgroundColor:'snow',
     }
 })
 
