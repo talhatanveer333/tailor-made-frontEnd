@@ -2,6 +2,7 @@ import React from 'react';
 import { FlatList, View, StyleSheet } from 'react-native';
 
 import ConversationHead from './ConversationHead';
+import colors from '../config/colors';
 
 const options=[
     {
@@ -48,7 +49,7 @@ function SettingsOptionsList(props) {
     return (
             <FlatList
             nestedScrollEnabled
-            style={styles.list}
+            style={{backgroundColor:colors.screenBackground}}
             data={options}
             keyExtractor={options=>options.id.toString()}
             renderItem={({item}) => <ConversationHead name={item.name} description={item.description} />}
@@ -60,6 +61,7 @@ const styles = StyleSheet.create({
     list:{
         //height:530,
         //backgroundColor:'snow'
+
     }
 })
 export default SettingsOptionsList;

@@ -7,6 +7,8 @@ import OptionsList from './../components/SettingsOptionsList';
 import HeadSection from '../components/HeadSection';
 import AuthContext from '../auth/context';
 import Button from '../components/AppButton';
+import colors from '../config/colors';
+import fonts from '../config/fonts';
 
 
 function SettingsScreen(props) {
@@ -26,7 +28,7 @@ const {user, setUser}=useContext(AuthContext);
                             uri:'https://picsum.photos/id/241/200/300',
                         }}/>
                         <View style={styles.iconView}>
-                            <Entypo name='camera' size={15} style={styles.icon} /> 
+                            <Entypo name='camera' size={15} color={colors.third} /> 
                         </View>
                         <View style={styles.contentContainer}>
                             <Text style={styles.name}>{'Talha' + ' ' + 'Tanveer'}</Text>
@@ -58,13 +60,13 @@ const styles = StyleSheet.create({
     },
     lowerContainer:{
         flex:1,
-        backgroundColor:'snow',
+        backgroundColor:colors.screenBackground,
         padding:20,
     },
     heading:{
-        fontSize:32,
-        color:'black',
-        fontWeight:'bold',
+        fontSize:fonts.fontSize.heading,
+        color:colors.textHeading,
+        fontWeight:fonts.heading,
         paddingBottom:20,
     },
     profileImage:{
@@ -72,6 +74,8 @@ const styles = StyleSheet.create({
         height:70,
         borderRadius:50,
         marginLeft:10,
+        borderWidth:2,
+        borderColor:colors.third,
     },
     contentContainer:{
         //backgroundColor:'black',
@@ -80,13 +84,13 @@ const styles = StyleSheet.create({
         justifyContent:'center',
     },
     name:{
-        color:'black',
-        fontSize:20,
-        fontWeight:'bold',
+        color:colors.textHeading,
+        fontSize:fonts.fontSize.headingPro,
+        fontWeight:fonts.fontWiegth.heading,
     },
     email:{
-        color:'grey',
-        fontSize:13,
+        color:colors.hint,
+        fontSize:fonts.fontSize.text,
     },
     profileDataContainer:{
         flexDirection:'row',
@@ -96,7 +100,7 @@ const styles = StyleSheet.create({
         position:'absolute',
         left:65,
         bottom:5,
-        backgroundColor:'white',
+        backgroundColor:colors.screenBackground,
         borderRadius:50,
     }
     

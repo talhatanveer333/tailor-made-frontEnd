@@ -2,6 +2,8 @@ import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 
 import TailorsList from '../components/TailorsList';
+import colors from '../config/colors';
+import Constants  from 'expo-constants';
 
 function TailorsScreen(props) {
     return (
@@ -14,7 +16,8 @@ function TailorsScreen(props) {
 const styles = StyleSheet.create({
     container:{
     paddingHorizontal:10,
-    backgroundColor:'snow',
+    backgroundColor:colors.screenBackground,
+    paddingTop:Constants.statusBarHeight,
     }
 })
 

@@ -4,6 +4,7 @@ import { MaterialCommunityIcons, Ionicons, Fontisto } from '@expo/vector-icons';
 import Constants from 'expo-constants';
 
 import AuthContext from '../auth/context';
+import colors from '../config/colors';
 
 function HomeScreen(props) {
     const {user, setUser} = useContext(AuthContext);
@@ -56,7 +57,8 @@ const styles = StyleSheet.create({
         //justifyContent:'center',
         //alignItems: 'center',
         //paddingTop: Constants.statusBarHeight,
-        backgroundColor:'grey',
+        backgroundColor:colors.screenBackground,
+        paddingTop:Constants.statusBarHeight,
     },
     topView:{
         //width:'100%',

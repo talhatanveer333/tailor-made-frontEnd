@@ -3,51 +3,43 @@ import {View, Image, Text, StyleSheet} from 'react-native';
 import {MaterialCommunityIcons, Ionicons, Entypo} from '@expo/vector-icons';
 
 import AuthContext from '../auth/context';
+import colors from '../config/colors';
+import Constants from 'expo-constants';
+import AppText from '../components/AppText';
+import fonts from '../config/fonts';
 
 function HeadSection(props) {
 const {user, setUser}=useContext(AuthContext);
     return (
-        <View style={styles.upperContainer}>
-                <Image resizeMode={'stretch'} source={{
-                    uri:'https://picsum.photos/id/249/200/300',
-                    width:'100%',
-                    height:'100%',
-                }}/>
-                <Entypo name='cross' size={35} color='snow' style={styles.cross}/>
-                <MaterialCommunityIcons name='hexagon' size={80} color='snow' style={styles.mainIcon} />
-                <Ionicons name='md-cube' size={40} color='#E91E63' style={styles.subIcon} />
-                <Text style={styles.headingTitle}>{'Smart Tailor'}</Text>
+        <View style={styles.container}>
+            <AppText text='Settings' color={colors.textHeading} 
+            fontSize={fonts.fontSize.headingPro1}/>
+            <Image style={styles.profileImage} resizeMode={'cover'} 
+            source={{
+                uri:'https://picsum.photos/id/241/200/300',
+            }}/>
         </View>
     );
 }
 
 const styles = StyleSheet.create({
-    upperContainer:{
-        width:'100%',
-        height:240,
-        backgroundColor:'red',
+    container:{
+        backgroundColor:colors.primary,
+        height:120,
+        paddingTop:Constants.statusBarHeight,
+        paddingHorizontal:20,
+        paddingBottom:5,
+        flexDirection:'row',
+        alignItems:'center',
     },
-    cross:{
-        position:'absolute',
-        left:10,
-        top:20,
-    },
-    mainIcon:{
-        position:'absolute',
-        left:130,
-        top:70,
-    },
-    subIcon:{
-        position:'absolute',
-        left:151,
-        top:90,
-    },
-    headingTitle:{
-        position:'absolute',
-        fontSize:50,
-        color:'snow',
-        left:210,
-        top:70,
+    profileImage:{
+        alignSelf:'flex-end',
+        width:70,
+        height:70,
+        borderRadius:50,
+        marginLeft:10,
+        borderWidth:2,
+        borderColor:colors.third,
     },
 })
 

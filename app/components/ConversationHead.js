@@ -2,6 +2,9 @@ import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import {Ionicons} from '@expo/vector-icons';
 
+import colors from '../config/colors';
+import fonts from '../config/fonts';
+
 function ConversationHead({name, description}) {
     return (
         <View style={styles.container}>
@@ -18,22 +21,22 @@ function ConversationHead({name, description}) {
 
 const styles = StyleSheet.create({
     container:{
-        backgroundColor:'snow',
+        backgroundColor:colors.screenBackground,
         borderTopWidth:0.5,
-        borderColor:'#E0E0E0',
+        borderColor:colors.third,
         justifyContent:'center',
         padding:15,
     },
     name:{
-        fontSize:16,
-        fontWeight:'bold',
-        color:'black',
+        fontSize:fonts.fontSize.heading,
+        fontWeight:fonts.fontWiegth.heading,
+        color:colors.textHeading,
         paddingBottom:5,
     },
     description:{
-        fontSize:13,
-        fontWeight:'600',
-        color:'grey',
+        fontSize:fonts.fontSize.text,
+        fontWeight:fonts.fontWiegth.text,
+        color:colors.text,
     },
     icon:{
         position:'absolute',

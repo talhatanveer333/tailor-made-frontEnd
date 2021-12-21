@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import {View, StyleSheet} from 'react-native';
 import {Formik} from 'formik';
 import * as Yup from 'yup';
+import Constants from 'expo-constants';
 
 import InputField from '../components/InputField';
 import AppButton from '../components/AppButton';
@@ -9,27 +10,30 @@ import AppText from '../components/AppText';
 import colors from '../config/colors';
 import fontConfig from '../config/fonts';
 import authApi from '../api/authApi';
+import { Contacts } from 'expo';
 
 const validationSchema = Yup.object().shape({
     email: Yup.string().required().email().label('Email'),
     password: Yup.string().required().min(8).label('Password')
 })
 
-function LoginPageScreen(props) {
+function LoginPageScreen({navigator}) {
     const[loginFailed, setLoginFailed]=useState(false);
-    const[err, setErr]=useState('');
+    const[err, setErr]=useState('Incorrect username or password');
     const login=async({email, password})=>{
-        const result = await authApi.login(email, password);
-        if(!result.ok){
-            setErr(result.data);
-            return setLoginFailed(true);
-        }
-        setLoginFailed(false);
+        // const result = await authApi.login(email, password);
+        // if(!result.ok){
+        //     setErr(result.data);
+        //     return setLoginFailed(true);
+        // }
+        // setLoginFailed(false);
+        navigator.navigate('Home');// check navigation
         
     }
 
     return (
         <View style={styles.container}>
+            
             <Formik
             initialValues={{email:'', password:''}}
             onSubmit={login}
@@ -74,6 +78,7 @@ const styles = StyleSheet.create({
         alignItems:'center',
         padding:10,
         backgroundColor:colors.screenBackgroung,
+        //paddingTop: Constants.statusBarHeight+10,
     }
 })
 

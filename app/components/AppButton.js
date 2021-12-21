@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
         padding:17,        
     },
     title:{
-        color:colors.screenBackgroung,
+        color:colors.textHeading,
         fontSize:fontConfig.fontSize.button,
         fontWeight: fontConfig.fontWiegth.bold,
     }

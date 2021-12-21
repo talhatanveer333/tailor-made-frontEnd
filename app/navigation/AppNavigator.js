@@ -5,16 +5,17 @@ import {MaterialCommunityIcons, Ionicons, Octicons} from '@expo/vector-icons';
 
 import HomeScreen from '../screens/TailorsScreen';
 import SettingsScreen from '../screens/SettingsScreen';
+import colors from '../config/colors';
 
 const BottomTab=createBottomTabNavigator();
 const AppNavigator=()=>(
     <BottomTab.Navigator
     initialRouteName='Home'
     tabBarOptions={{
-    activeBackgroundColor:'snow',
-    activeTintColor:'rgb(97, 106, 232)',
-    inactiveBackgroundColor:'snow',
-    inactiveTintColor:'rgb(127, 127, 127)',
+    activeBackgroundColor:colors.third,
+    activeTintColor:colors.screenBackground,
+    inactiveBackgroundColor:colors.screenBackground,
+    inactiveTintColor:colors.third,
     showLabel:false
     }}>
         <BottomTab.Screen name='Home'

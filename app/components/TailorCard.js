@@ -11,7 +11,7 @@ function TailorCard(props) {
             <View style={{
                     width:80,
                     height:80,
-                    backgroundColor:'#F0A30A',
+                    backgroundColor:colors.third,
                     borderRadius:50,
                     alignItems:'center',
                     justifyContent:'center',
@@ -48,13 +48,15 @@ function TailorCard(props) {
 const styles = StyleSheet.create({
     container:{
         borderRadius:15,
-        backgroundColor:colors.screenBackground,
+        backgroundColor:colors.secondary,
         padding:10,
         justifyContent:'center',
         elevation:5,
         overflow:'hidden',
         marginTop:15,
         flexDirection:'row',
+        borderWidth:1.5,
+        borderColor:colors.third,
     },
     subContainer:{
         flexDirection:'row',

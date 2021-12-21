@@ -44,12 +44,12 @@ return(
       <CartContext.Provider value={{cart, setCart}}>
         <NavigationContainer>
           {/* {user? <AppNavigator /> : <AuthNavigator />} */}
-          <AppNavigator />
+          <AuthNavigator />
         </NavigationContainer>
         </CartContext.Provider>
     </AuthContext.Provider>
 
-    <StatusBar style="auto" />
+    <StatusBar style="inverted" />
     </>
 
   );
