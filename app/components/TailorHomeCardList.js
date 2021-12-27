@@ -26,6 +26,69 @@ const tailors=[
         price:1800,
         isNew:true
     },
+    {
+        id:4,
+        name:'Mohsin',
+        description:'Main darzi hun',
+        price:1500,
+        isNew:true
+    },
+    {
+        id:5,
+        name:'Talha',
+        description:'Main darzi nahe hun',
+        price:100,
+        isNew:false
+    },
+    {
+        id:6,
+        name:'Azad',
+        description:'Main darzi nahe hun',
+        price:1800,
+        isNew:true
+    },
+    {
+        id:11,
+        name:'Mohsin',
+        description:'Main darzi hun',
+        price:1500,
+        isNew:true
+    },
+    {
+        id:12,
+        name:'Talha',
+        description:'Main darzi nahe hun',
+        price:100,
+        isNew:false
+    },
+    {
+        id:13,
+        name:'Azad',
+        description:'Main darzi nahe hun',
+        price:1800,
+        isNew:true
+    },
+    {
+        id:14,
+        name:'Mohsin',
+        description:'Main darzi hun',
+        price:1500,
+        isNew:true
+    },
+    {
+        id:15,
+        name:'Talha',
+        description:'Main darzi nahe hun',
+        price:100,
+        isNew:false
+    },
+    {
+        id:16,
+        name:'Azad',
+        description:'Main darzi nahe hun',
+        price:1800,
+        isNew:true
+    },
 ]
 
 function TailorHomeCardList(props) {

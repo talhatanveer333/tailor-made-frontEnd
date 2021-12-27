@@ -3,6 +3,7 @@ import { View } from 'react-native';
 
 import TailorHomeCardList from '../components/TailorHomeCardList';
 import colors from '../config/colors';
+import HeadSection from '../components/HeadSection';
 
 const item={
     name:'I am tailor',
@@ -13,9 +14,12 @@ const item={
 
 function TempScreen(props) {
     return (
-        <View style={{backgroundColor:colors.hint}}>
+        <>
+        <HeadSection title='Tailors' />
+        <View style={{backgroundColor:colors.screenBackground}}>
             <TailorHomeCardList  />
         </View>
+        </>
     );
 }
 

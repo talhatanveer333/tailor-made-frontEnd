@@ -7,20 +7,31 @@ import AppText from './AppText';
 
 export default function TailorHomeCard({navigation, name, description, price, isNew}) {
   return (
-      <View style={{
-          paddingHorizontal:scale(15),
-          paddingVertical:scale(15),
-      }}>
+      <Pressable onPress={() => console.log('dabb rha hai')}>
         <View style={{
-            borderRadius:150,
-            overflow:'hidden',
-            }}>
-            <Image resizeMode={'cover'} source={{
-                uri:'https://picsum.photos/id/244/200/300',
-                width:scale(130),
-                height:scale(130),
-            }}/>
+            paddingHorizontal:scale(15),
+            paddingVertical:scale(15),
+            alignItems:'center',
+            width:scale(180),
+            height:scale(180),
+        }}>
+            <View style={{
+                borderRadius:100,
+                overflow:'hidden',
+                borderWidth:2,
+                borderColor:colors.third
+                }}>
+                <Image resizeMode={'cover'} source={{
+                    uri:'https://picsum.photos/id/242/200/300',
+                    width:scale(100),
+                    height:scale(100),
+                }}/>
+            </View>
+            <View style={{paddingTop:10, alignItems:'center'}}>
+                <AppText text={name} fontSize={fonts.fontSize.headingPro} fontWeight={fonts.fontWiegth.heading} color={colors.text} />
+                <AppText numberOfLines={2} text={description} fontSize={fonts.fontSize.heading} fontWeight={fonts.fontWiegth.text} color={colors.hint} />
+            </View>
         </View>
-      </View>
+      </Pressable>
   );
 }
