@@ -40,6 +40,16 @@ const options=[
         name:'Khaata Settings',
         description:'Notifications, Passwords',
     },
+    {
+        id:8,
+        name:'Inventory Settings',
+        description:'Notifications, Passwords',
+    },
+    {
+        id:9,
+        name:'Khaata Settings',
+        description:'Notifications, Passwords',
+    },
     
     
     

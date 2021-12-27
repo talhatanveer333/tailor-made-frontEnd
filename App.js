@@ -9,6 +9,7 @@ import AuthNavigator from './app/navigation/AuthNavigator';
 import AuthStore from './app/auth/authStorage';
 import CartStorage from './app/cart/cartStorage';
 import CartContext from './app/cart/context';
+import TempScreen from './app/screens/TempScreen';
 
 
 export default function App() {
@@ -40,11 +41,12 @@ return(
 
   return (
     <>
+    
     <AuthContext.Provider value={{user, setUser}}>
       <CartContext.Provider value={{cart, setCart}}>
         <NavigationContainer>
           {/* {user? <AppNavigator /> : <AuthNavigator />} */}
-          <AuthNavigator />
+          <TempScreen />
         </NavigationContainer>
         </CartContext.Provider>
     </AuthContext.Provider>

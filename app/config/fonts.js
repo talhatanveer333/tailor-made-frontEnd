@@ -4,7 +4,7 @@ const fontFamily = {
     funky:'sans-serif-thin',
 }
 const fontSize = {
-    headingPro1:35,
+    headingPro1:45,
     headingPro:23,
     heading:15,
     text:12,

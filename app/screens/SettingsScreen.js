@@ -17,7 +17,7 @@ const {user, setUser}=useContext(AuthContext);
         <View style={styles.mainContainer}>
             <ScrollView style={styles.scrollView}>
 
-            <HeadSection />
+            <HeadSection title={'Settings'}/>
             
             
             <View style={styles.lowerContainer}>
@@ -94,6 +94,7 @@ const styles = StyleSheet.create({
     },
     profileDataContainer:{
         flexDirection:'row',
+        marginBottom:10,
     },
     iconView:{
         padding:5,

@@ -12,7 +12,7 @@ function HeadSection(props) {
 const {user, setUser}=useContext(AuthContext);
     return (
         <View style={styles.container}>
-            <AppText text='Settings' color={colors.textHeading} 
+            <AppText text={props.title} color={colors.textHeading} 
             fontSize={fonts.fontSize.headingPro1}/>
             <Image style={styles.profileImage} resizeMode={'cover'} 
             source={{
@@ -33,13 +33,16 @@ const styles = StyleSheet.create({
         alignItems:'center',
     },
     profileImage:{
-        alignSelf:'flex-end',
+        position:'absolute',
+        alignSelf:'center',
         width:70,
         height:70,
         borderRadius:50,
         marginLeft:10,
         borderWidth:2,
         borderColor:colors.third,
+        right:15,
+        bottom:15,
     },
 })
 
