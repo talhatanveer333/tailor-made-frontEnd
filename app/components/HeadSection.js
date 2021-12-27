@@ -1,6 +1,7 @@
 import React, {useContext} from 'react';
 import {View, Image, Text, StyleSheet} from 'react-native';
 import {MaterialCommunityIcons, Ionicons, Entypo} from '@expo/vector-icons';
+import {scale} from 'react-native-size-matters';
 
 import AuthContext from '../auth/context';
 import colors from '../config/colors';
@@ -25,24 +26,23 @@ const {user, setUser}=useContext(AuthContext);
 const styles = StyleSheet.create({
     container:{
         backgroundColor:colors.primary,
-        height:120,
+        height:scale(65),
         paddingTop:Constants.statusBarHeight,
-        paddingHorizontal:20,
-        paddingBottom:5,
+        paddingHorizontal:scale(10),
+        paddingBottom:scale(2),
         flexDirection:'row',
         alignItems:'center',
     },
     profileImage:{
         position:'absolute',
         alignSelf:'center',
-        width:70,
-        height:70,
-        borderRadius:50,
-        marginLeft:10,
-        borderWidth:2,
+        width:scale(40),
+        height:scale(40),
+        borderRadius:scale(30),
+        borderWidth:1,
         borderColor:colors.third,
-        right:15,
-        bottom:15,
+        right:scale(6),
+        bottom:scale(3.5),
     },
 })
 

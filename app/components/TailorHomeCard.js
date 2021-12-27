@@ -31,6 +31,7 @@ export default function TailorHomeCard({navigation, name, description, price, is
                 <AppText text={name} fontSize={fonts.fontSize.headingPro} fontWeight={fonts.fontWiegth.heading} color={colors.text} />
                 <AppText numberOfLines={2} text={description} fontSize={fonts.fontSize.heading} fontWeight={fonts.fontWiegth.text} color={colors.hint} />
             </View>
+            {/* ratings */}
         </View>
       </Pressable>
   );

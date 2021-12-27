@@ -9,7 +9,7 @@ import AuthNavigator from './app/navigation/AuthNavigator';
 import AuthStore from './app/auth/authStorage';
 import CartStorage from './app/cart/cartStorage';
 import CartContext from './app/cart/context';
-import TempScreen from './app/screens/TempScreen';
+import TempScreen from './app/screens/TailorsScreen';
 
 
 export default function App() {
