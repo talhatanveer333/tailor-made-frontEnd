@@ -1,7 +1,7 @@
 import React from 'react';
 import { View } from 'react-native';
 
-import TailorHomeCardList from '../components/TailorHomeCardList';
+import Catalog from '../components/CatalogList';
 import colors from '../config/colors';
 import HeadSection from '../components/HeadSection';
 
@@ -15,9 +15,9 @@ const item={
 function TempScreen(props) {
     return (
         <>
-        <HeadSection title='Tailors' />
+        {/* <HeadSection title='Tailors' /> */}
         <View style={{backgroundColor:colors.screenBackground}}>
-            <TailorHomeCardList  />
+            <Catalog />
         </View>
         </>
     );

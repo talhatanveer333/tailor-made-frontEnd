@@ -1,27 +1,26 @@
-//rsf
 import React from 'react';
 import {Image, StyleSheet, View, Text, TouchableOpacity, TouchableHighlight, TouchableWithoutFeedback} from 'react-native';
-import {MaterialCommunityIcons} from '@expo/vector-icons';
+import { scale } from 'react-native-size-matters';
 
+import colors from '../config/colors';
+import fonts from '../config/fonts';
+import AppText  from './AppText';
 
 function productCard({image, title, description, price, onPress}) {
-    return (
-      
-         <TouchableWithoutFeedback onPress={onPress}>
-           <View style={styles.container}>
-           <MaterialCommunityIcons name="heart-outline" size={25} style={styles.likeIcon} />
-            <Image resizeMode={'stretch'} source={{
-                width:'100%',
-                height:'68%',
-                uri:image,
-                }}/>
-            
-            <Text style={styles.title}>{title}</Text>
-            <Text numberOfLines={2} style={styles.description}>{description}</Text>
-            <Text style={styles.price}>Rs. {price}</Text>
-            </View>
-         </TouchableWithoutFeedback>
-    );
+  return (
+    
+        <TouchableWithoutFeedback onPress={onPress}>
+          <View style={styles.container}>
+          <Image style={{borderRadius:scale(12)}} resizeMode={'cover'} source={{
+              width:scale(120),
+              height:scale(140),
+              uri:image,
+              }}/>
+          <AppText text={title} fontSize={fonts.fontSize.heading} fontWeight={fonts.fontWiegth.heading} fontFamily={fonts.fontFamily.primary} color={colors.third}/>
+          <AppText text={`${price} RS`} fontSize={fonts.fontSize.heading} fontWeight={fonts.fontWiegth.heading} fontFamily={fonts.fontFamily.primary} color={colors.third}/>
+          </View>
+        </TouchableWithoutFeedback>
+  );
 }
 
 
@@ -29,46 +28,17 @@ function productCard({image, title, description, price, onPress}) {
 //rnss
 const styles = StyleSheet.create({
   container:{
-    width:'49%',//185,
-    height:230,
-    backgroundColor:'snow',
-    borderRadius:13,
+    width:scale(135),
+    height:scale(180),
+    backgroundColor:colors.secondary,
+    borderRadius:scale(12),
     alignItems: 'center',
     overflow: 'hidden',
-    marginTop:10,
-    marginRight:5,
-    elevation: 7, 
-  },
-  title:{
-    color:'black',
-    fontSize: 15,
-    fontWeight: 'bold',
-    alignSelf: 'flex-start',
-    left: 5,
-  },
-  description:{
-    color:'black',
-    fontSize: 12,
-    fontWeight: '200',
-    alignSelf: 'flex-start',
-    left: 5,
-    width:120,
-    bottom: -5
-  },
-  likeIcon:{
-    position:'absolute',
-    right:7,
-    bottom:47,
-  },
-  price:{
-    color:'green',
-    fontSize: 16,
-    fontWeight: 'bold',
-    alignSelf: 'flex-end',
-    position: 'absolute',
-    right: 5,
-    bottom: 5,
-  },
+    marginTop:scale(10),
+    elevation: scale(10), 
+    padding:scale(7),
+    marginLeft:scale(5),
+  }
 })
 
 export default productCard;

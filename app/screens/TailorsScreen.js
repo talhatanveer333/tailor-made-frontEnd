@@ -1,7 +1,8 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
+import {scale} from 'react-native-size-matters';
 
-import TailorsList from '../components/TailorsList';
+import TailorHomeCardList from '../components/TailorHomeCardList';
 import colors from '../config/colors';
 import Constants  from 'expo-constants';
 import HeadSection from '../components/HeadSection';
@@ -11,7 +12,7 @@ function TailorsScreen(props) {
         <>
         <HeadSection title='Tailors' />
         <View style={styles.container}>
-            <TailorsList />
+            <TailorHomeCardList />
         </View>
         </>
     );
@@ -19,7 +20,7 @@ function TailorsScreen(props) {
 
 const styles = StyleSheet.create({
     container:{
-    paddingHorizontal:10,
+    //paddingHorizontal:scale(5),
     backgroundColor:colors.screenBackground,
     paddingTop:Constants.statusBarHeight,
     }

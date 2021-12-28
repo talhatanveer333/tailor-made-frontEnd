@@ -1,6 +1,5 @@
 import React, {useContext} from 'react';
 import {View, Image, Text, StyleSheet} from 'react-native';
-import {MaterialCommunityIcons, Ionicons, Entypo} from '@expo/vector-icons';
 import {scale} from 'react-native-size-matters';
 
 import AuthContext from '../auth/context';
@@ -26,7 +25,7 @@ const {user, setUser}=useContext(AuthContext);
 const styles = StyleSheet.create({
     container:{
         backgroundColor:colors.primary,
-        height:scale(65),
+        height:scale(75),
         paddingTop:Constants.statusBarHeight,
         paddingHorizontal:scale(10),
         paddingBottom:scale(2),

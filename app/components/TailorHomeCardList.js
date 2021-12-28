@@ -8,16 +8,18 @@ const tailors=[
     {
         id:1,
         name:'Mohsin',
-        description:'Main darzi hun',
+        description:'Main darzi hunMain darzi hunMain darzi hunMain darzi hunMain darzi hunMain darzi hunMain darzi hunMain darzi hun',
         price:1500,
-        isNew:true
+        isNew:true,
+        rating:3
     },
     {
         id:2,
         name:'Talha',
         description:'Main darzi nahe hun',
         price:100,
-        isNew:false
+        isNew:false,
+        rating:4
     },
     {
         id:3,
@@ -31,14 +33,16 @@ const tailors=[
         name:'Mohsin',
         description:'Main darzi hun',
         price:1500,
-        isNew:true
+        isNew:true,
+        rating:1
     },
     {
         id:5,
         name:'Talha',
         description:'Main darzi nahe hun',
         price:100,
-        isNew:false
+        isNew:false,
+        rating:2,
     },
     {
         id:6,
@@ -98,7 +102,7 @@ function TailorHomeCardList(props) {
             numColumns={2}
             data={tailors}
             keyExtractor={tailors=>tailors.id.toString()}
-            renderItem={({item}) => <TailorHomeCard name={item.name} description={item.description} price={item.price} isNew={item.isNew}/>}
+            renderItem={({item}) => <TailorHomeCard id={item.id} name={item.name} description={item.description} price={item.price} isNew={item.isNew} rating={item.rating}/>}
             />
     );
 }
