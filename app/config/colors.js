@@ -11,6 +11,7 @@ const colors = {
     background:'snow',
     screenBackground:'#04293A',
     screenBackground1:'#ECB365',
+    price:'#2ECC71',
 }
 
 export default colors;

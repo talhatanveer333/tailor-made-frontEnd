@@ -6,7 +6,7 @@ import colors from '../config/colors';
 import fonts from '../config/fonts';
 import AppText  from './AppText';
 
-function productCard({image, title, description, price, onPress}) {
+function ProductCard({image, title, description, price, onPress}) {
   return (
     
         <TouchableWithoutFeedback onPress={onPress}>
@@ -16,8 +16,10 @@ function productCard({image, title, description, price, onPress}) {
               height:scale(140),
               uri:image,
               }}/>
-          <AppText text={title} fontSize={fonts.fontSize.heading} fontWeight={fonts.fontWiegth.heading} fontFamily={fonts.fontFamily.primary} color={colors.third}/>
-          <AppText text={`${price} RS`} fontSize={fonts.fontSize.heading} fontWeight={fonts.fontWiegth.heading} fontFamily={fonts.fontFamily.primary} color={colors.third}/>
+          <View style={{alignItems:'center', paddingTop:scale(3), flexDirection:'column'}}>
+            <AppText text={title} fontSize={fonts.fontSize.heading} fontWeight={fonts.fontWiegth.heading} fontFamily={fonts.fontFamily.funky} color={colors.third}/>
+            <AppText text={`${price} RS`} fontSize={fonts.fontSize.heading} fontWeight={fonts.fontWiegth.heading} fontFamily={fonts.fontFamily.primary} color={colors.third}/>
+          </View>
           </View>
         </TouchableWithoutFeedback>
   );
@@ -42,4 +44,4 @@ const styles = StyleSheet.create({
   }
 })
 
-export default productCard;
+export default ProductCard;
