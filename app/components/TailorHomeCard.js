@@ -31,7 +31,7 @@ useEffect(()=>{
             paddingVertical:scale(15),
             alignItems:'center',
             width:scale(180),
-            height:scale(180),
+            height:scale(190),
             marginBottom:scale(12),
         }}>
             <View style={{

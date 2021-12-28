@@ -1,10 +1,10 @@
 import React from 'react';
 import { Text, View, StyleSheet } from 'react-native';
 
-function AppText({text, ...otherProps}) {
+function AppText({text, numberOfLines, ...otherProps}) {
     return (
         <View style={styles.container}>
-            <Text numberOfLines={2} style={{...otherProps}}
+            <Text numberOfLines={numberOfLines} style={{...otherProps}}
              >{text}</Text>
         </View>
     );

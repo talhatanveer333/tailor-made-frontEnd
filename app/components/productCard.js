@@ -38,6 +38,7 @@ const styles = StyleSheet.create({
     elevation: scale(10), 
     padding:scale(7),
     marginLeft:scale(5),
+    marginBottom:scale(10),
   }
 })
 

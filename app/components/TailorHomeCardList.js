@@ -99,6 +99,7 @@ function TailorHomeCardList(props) {
     return (
         <FlatList
             nestedScrollEnabled
+            showsHorizontalScrollIndicator={false}
             numColumns={2}
             data={tailors}
             keyExtractor={tailors=>tailors.id.toString()}
