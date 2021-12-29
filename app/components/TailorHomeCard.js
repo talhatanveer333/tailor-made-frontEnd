@@ -9,7 +9,7 @@ import AppText from './AppText';
 
 
 
-export default function TailorHomeCard({navigation, id, name, description, price, isNew, rating}) {
+export default function TailorHomeCard({navigation, id, name, description, price, isNew, rating, image}) {
 
 const [ratingStars, setRatingStars] =useState([]);
 let ratingStarsArray=[];
@@ -41,7 +41,7 @@ useEffect(()=>{
                 borderColor:colors.third
                 }}>
                 <Image resizeMode={'cover'} source={{
-                    uri:`https://picsum.photos/200/300?random=${Math.random() * 10}`,
+                    uri:image,
                     width:scale(100),
                     height:scale(100),
                 }}/>

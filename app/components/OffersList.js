@@ -24,6 +24,7 @@ const offers=[
     
 ]
 
+
 function OffersList(props) {
     return (
         <FlatList
@@ -31,9 +32,12 @@ function OffersList(props) {
             nestedScrollEnabled
             data={offers}
             keyExtractor={offers=>offers.id.toString()}
-            renderItem={({item}) => <ProductCard image={item.image} id={item.id} title={item.name} price={item.price} isNew={item.isNew} onPress={()=>console.log('what')}/>}
+            renderItem={({item}) => <ProductCard  id={item.id} title={item.name} price={item.price} isNew={item.isNew} onPress={()=>addToCart(item)}/>}
             />
     );
+}
+function addToCart(item){
+    console.log(item.name);
 }
 
 export default OffersList;

@@ -28,7 +28,7 @@ function TailorDetailsScreen(props) {
         <View styles={styles.container}>
             <View style={{backgroundColor:colors.screenBackground}}>
             <Image style={{borderBottomLeftRadius:120}} resizeMode={'cover'} source={{
-                    uri:`https://picsum.photos/200/300?random=${Math.random() * 10}`,
+                    uri:`https://picsum.photos/3000/3000?random=${Math.random() * 10}`,
                     width:scale(350),
                     height:scale(250),
                 }}/>

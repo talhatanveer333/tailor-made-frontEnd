@@ -1,7 +1,7 @@
 import React from 'react';
 import {FlatList} from 'react-native';
 
-import ProductCard from './productCard';
+import ProductCard from './ProductCard';
 
 const products=[
     {
@@ -9,32 +9,32 @@ const products=[
         name:'Leather Jacket',
         price:3400,
         isNew:true,
-        image:`https://picsum.photos/200/300?random=${Math.random() * 10}`,
+        image:`https://picsum.photos/800/800?random=${Math.random() * 10}`,
     },
     {
         id:2,
         name:'Karandi Suit',
         price:3200,
-        image:`https://picsum.photos/200/300?random=${Math.random() * 10}`,
+        image:`https://picsum.photos/800/800?random=${Math.random() * 10}`,
     },
     {
         id:3,
         name:'Leather Jacket',
         price:1300,
         isNew:true,
-        image:`https://picsum.photos/200/300?random=${Math.random() * 10}`,
+        image:`https://picsum.photos/800/800?random=${Math.random() * 10}`,
     },
     {
         id:4,
         name:'Cotton Suit',
         price:1500,
-        image:`https://picsum.photos/200/300?random=${Math.random() * 10}`,
+        image:`https://picsum.photos/800/800?random=${Math.random() * 10}`,
     },
     {
         id:5,
         name:'Wash & Wear Suit',
         price:1800,
-        image:`https://picsum.photos/200/300?random=${Math.random() * 10}`,
+        image:`https://picsum.photos/800/800?random=${Math.random() * 10}`,
     },
 ]
 

@@ -9,28 +9,28 @@ const testimonials=[
         name:'Talha Tanveer',
         rating:3,
         comment:'Excellent! This guy is awesome. He completed his work before deadline. Will surely contact you for future projects. Excellent! This guy is awesome. He completed his work before deadline. Will surely contact you for future projects.',
-        image:`https://picsum.photos/200/300?random=${Math.random() * 10}`,
+        image:`https://picsum.photos/800/800?random=${Math.random() * 10}`,
     },
     {
         id:2,
         name:'Mohsin Hassan',
         rating:4,
         comment:'Excellent! This guy is awesome. He completed his work before deadline. Will surely contact you for future projects. Excellent! This guy is awesome. He completed his work before deadline. Will surely contact you for future projects.',
-        image:`https://picsum.photos/200/300?random=${Math.random() * 10}`,
+        image:`https://picsum.photos/800/800?random=${Math.random() * 10}`,
     },
     {
         id:3,
         name:'Azad Bhai',
         rating:5,
         comment:'Excellent! This guy is awesome. He completed his work before deadline. Will surely contact you for future projects. Excellent! This guy is awesome. He completed his work before deadline. Will surely contact you for future projects.',
-        image:`https://picsum.photos/200/300?random=${Math.random() * 10}`,
+        image:`https://picsum.photos/800/800?random=${Math.random() * 10}`,
     },
     {
         id:4,
         name:'Cappy Jani',
         rating:3,
         comment:'Excellent! This guy is awesome. He completed his work before deadline. Will surely contact you for future projects. Excellent! This guy is awesome. He completed his work before deadline. Will surely contact you for future projects.',
-        image:`https://picsum.photos/200/300?random=${Math.random() * 10}`,
+        image:`https://picsum.photos/800/800?random=${Math.random() * 10}`,
     }
 ]
 
