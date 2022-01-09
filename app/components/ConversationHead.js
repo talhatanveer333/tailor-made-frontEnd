@@ -26,6 +26,7 @@ const styles = StyleSheet.create({
         borderColor:colors.third,
         justifyContent:'center',
         padding:15,
+
     },
     name:{
         fontSize:fonts.fontSize.heading,

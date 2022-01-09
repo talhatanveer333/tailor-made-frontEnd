@@ -110,6 +110,8 @@ const tailors=[
 function TailorHomeCardList(props) {
     return (
         <FlatList
+            refreshing={refreshing}
+            onRefresh={()=> console.log('refreshing')}
             nestedScrollEnabled
             showsHorizontalScrollIndicator={false}
             numColumns={2}

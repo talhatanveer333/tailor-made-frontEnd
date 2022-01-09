@@ -12,6 +12,7 @@ const fontSize = {
     button:15,
 }
 const fontWiegth = {
+    headingPro:'bold',
     heading:'700',
     bold:'bold',
     text:'300'
