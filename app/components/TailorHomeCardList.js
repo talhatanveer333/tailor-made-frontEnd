@@ -112,6 +112,7 @@ const tailors=[
 function TailorHomeCardList() {
     const navigation = useNavigation();
     return (
+        // <AppButton title="hehe" />
         <FlatList
             //refreshing={refreshing}
             //onRefresh={()=> console.log('refreshing')}
@@ -120,7 +121,7 @@ function TailorHomeCardList() {
             numColumns={2}
             data={tailors}
             keyExtractor={tailors=>tailors.id.toString()}
-            renderItem={({item}) => <TailorHomeCard id={item.id} name={item.name} description={item.description} price={item.price} isNew={item.isNew} rating={item.rating} image={item.image} onPress={navigation.navigate('TailorDetailsScreen',{item})} />}
+            renderItem={({item}) => <TailorHomeCard id={item.id} name={item.name} description={item.description} price={item.price} isNew={item.isNew} rating={item.rating} image={item.image} onPress={()=>navigation.navigate('TailorDetailsScreen',{name:item.name, rating:item.rating, id:item.id})} />}
             />
     );
 }

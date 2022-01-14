@@ -42,14 +42,14 @@ const AppNavigator=()=>(
         component={TailorNavigator}
         options={{
         headerShown:false,
-        tabBarIcon:({size, color}) => <MaterialCommunityIcons name='home' color={color} size={40} />
+        tabBarIcon:({size, color}) => <MaterialCommunityIcons name='home' color={color} size={size} />
         }}
         />
         <BottomTab.Screen name='Settings'
         component={SettingsScreen}
         options={{
         headerShown:false,            
-        tabBarIcon:({size, color}) => <Ionicons name='settings' color={color} size={40} />
+        tabBarIcon:({size, color}) => <Ionicons name='settings' color={color} size={size} />
         }}
         />
     </BottomTab.Navigator>

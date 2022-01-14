@@ -11,9 +11,8 @@ import RecommendationList from '../components/TailorHomeCardList';
 import TestimonialList from '../components/TestimonialList';
 
 function TailorDetailsScreen({route}) {
-    console.log(route.params);
     const [ratingStars, setRatingStars]=useState([]);
-    const rating=3;
+    const rating=route.params.rating;
     useEffect(()=>{
         let temp=[];
         for(let i=0;i<5;i++){
@@ -37,7 +36,7 @@ function TailorDetailsScreen({route}) {
                 <View style={{paddingHorizontal:scale(10), paddingTop:scale(20), backgroundColor:colors.screenBackground}}>
                     <AppText numberOfLines={1} text='I am' fontSize={fonts.fontSize.headingPro1} fontWieght={fonts.fontWiegth.headingPro} color={colors.third} fontFamily={fonts.fontFamily.funky} />
                     <View style={{flexDirection:'row', alignItems:'center'}}>
-                        <AppText numberOfLines={1} text='Talha Tanveer' fontSize={fonts.fontSize.headingPro1} fontWieght={fonts.fontWiegth.headingPro} color={colors.third} fontFamily={fonts.fontFamily.primary}/>
+                        <AppText numberOfLines={1} text={route.params.name} fontSize={fonts.fontSize.headingPro1} fontWieght={fonts.fontWiegth.headingPro} color={colors.third} fontFamily={fonts.fontFamily.primary}/>
                         <View style={{flexDirection:'row', right:scale(5), position:'absolute'}}>{ratingStars}</View>           
                     </View>
                     <AppText numberOfLines={3} text='I am the description I am the description I am the description I am the description I am the description' fontSize={fonts.fontSize.heading} fontWieght={fonts.fontWiegth.heading} color={colors.hint} fontFamily={fonts.fontFamily.primary}/>
