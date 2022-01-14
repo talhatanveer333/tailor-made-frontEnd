@@ -10,7 +10,7 @@ import AuthStore from './app/auth/authStorage';
 import CartStorage from './app/cart/cartStorage';
 import CartContext from './app/cart/context';
 import colors from './app/config/colors';
-import TempScreen from './app/screens/CartScreen';
+import TempScreen from './app/screens/TailorsScreen';
 
 
 export default function App() {
@@ -46,8 +46,8 @@ return(
     <AuthContext.Provider value={{user, setUser}}>
       <CartContext.Provider value={{cart, setCart}}>
         <NavigationContainer >
-          {/* {user? <AppNavigator /> : <AuthNavigator />} */}
-          <TempScreen />
+          <AppNavigator />
+          {/* <TempScreen /> */}
         </NavigationContainer>
         </CartContext.Provider>
     </AuthContext.Provider>

@@ -1,8 +1,10 @@
 import React from 'react';
 import {FlatList} from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 import TailorHomeCard  from './TailorHomeCard';
 import colors from '../config/colors';
+import AppButton from '../components/AppButton';
 
 const tailors=[
     {
@@ -107,17 +109,18 @@ const tailors=[
     },
 ]
 
-function TailorHomeCardList(props) {
+function TailorHomeCardList() {
+    const navigation = useNavigation();
     return (
         <FlatList
-            refreshing={refreshing}
-            onRefresh={()=> console.log('refreshing')}
+            //refreshing={refreshing}
+            //onRefresh={()=> console.log('refreshing')}
             nestedScrollEnabled
             showsHorizontalScrollIndicator={false}
             numColumns={2}
             data={tailors}
             keyExtractor={tailors=>tailors.id.toString()}
-            renderItem={({item}) => <TailorHomeCard id={item.id} name={item.name} description={item.description} price={item.price} isNew={item.isNew} rating={item.rating} image={item.image} />}
+            renderItem={({item}) => <TailorHomeCard id={item.id} name={item.name} description={item.description} price={item.price} isNew={item.isNew} rating={item.rating} image={item.image} onPress={navigation.navigate('TailorDetailsScreen',{item})} />}
             />
     );
 }

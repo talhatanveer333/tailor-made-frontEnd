@@ -9,7 +9,7 @@ import AppText from './AppText';
 
 
 
-export default function TailorHomeCard({navigation, id, name, description, price, isNew, rating, image}) {
+export default function TailorHomeCard({id, name, description, price, isNew, rating, image, onPress}) {
 
 const [ratingStars, setRatingStars] =useState([]);
 let ratingStarsArray=[];
@@ -25,7 +25,7 @@ useEffect(()=>{
 },[])
 
   return (
-      <Pressable onPress={() => console.log('dabb rha hai')}>
+      <Pressable onPress={onPress}>
         <View style={{
             paddingHorizontal:scale(15),
             paddingVertical:scale(15),

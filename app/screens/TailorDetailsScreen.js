@@ -10,7 +10,8 @@ import Catalog from '../components/CatalogList';
 import RecommendationList from '../components/TailorHomeCardList';
 import TestimonialList from '../components/TestimonialList';
 
-function TailorDetailsScreen(props) {
+function TailorDetailsScreen({route}) {
+    console.log(route.params);
     const [ratingStars, setRatingStars]=useState([]);
     const rating=3;
     useEffect(()=>{
