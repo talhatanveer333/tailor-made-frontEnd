@@ -1,6 +1,5 @@
 import React, {useState,useEffect} from 'react';
 import {FlatList} from 'react-native';
-import { useContext } from 'react/cjs/react.development';
 
 import productsApi from '../api/productsApi';
 import ProductCard from './ProductCard';
@@ -59,7 +58,7 @@ useEffect(()=>{
             nestedScrollEnabled
             data={products}
             keyExtractor={products=>products._id.toString()}
-            renderItem={({item}) => <ProductCard image={item.image} id={item._id} title={item.name} price={item.price} isNew={item.isNew}/>}
+            renderItem={({item}) => <ProductCard imageUrls={item.imageUrl} id={item._id} title={item.name} price={item.price} isNew={item.isNew}/>}
             />
     );
 }

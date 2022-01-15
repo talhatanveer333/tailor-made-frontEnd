@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { View , StyleSheet, Image} from 'react-native';
 import {scale} from 'react-native-size-matters';
 import {AntDesign} from '@expo/vector-icons';
@@ -8,6 +8,17 @@ import fonts from '../config/fonts';
 import AppText from './AppText';
 
 function TestimonialCard({name, rating, comment, image}) {
+    const [ratingStars, setRatingStars]=useState([]);
+    const wholeRating=Math.round( rating );
+    useEffect(()=>{
+        let temp=[];
+        for(let i=0;i<5;i++){
+            temp.push(
+                <AntDesign name={i<wholeRating?'star':'staro'} size={scale(8)} color={colors.third} />
+            )
+        }
+        setRatingStars(temp);
+    },[]);
     return (
         <View style={{
         backgroundColor:colors.screenBackground,
@@ -28,11 +39,12 @@ function TestimonialCard({name, rating, comment, image}) {
                 <View style={{flexDirection:'column', marginLeft:scale(5), justifyContent:'center'}}>
                     <AppText text={name} fontFamily={fonts.fontFamily.primary} fontSize={fonts.fontSize.heading} fontWeight={fonts.fontWiegth.heading} color={colors.third}/>
                     <View style={{flexDirection:'row'}}>
+                        {ratingStars}
+                        {/* <AntDesign name='star' size={scale(8)} color={colors.third} />
                         <AntDesign name='star' size={scale(8)} color={colors.third} />
                         <AntDesign name='star' size={scale(8)} color={colors.third} />
                         <AntDesign name='star' size={scale(8)} color={colors.third} />
-                        <AntDesign name='star' size={scale(8)} color={colors.third} />
-                        <AntDesign name='staro' size={scale(8)} color={colors.third} />
+                        <AntDesign name='staro' size={scale(8)} color={colors.third} /> */}
                     </View>
                 </View>
             </View>

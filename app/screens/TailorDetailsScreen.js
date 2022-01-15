@@ -12,12 +12,12 @@ import TestimonialList from '../components/TestimonialList';
 
 function TailorDetailsScreen({route}) {
     const [ratingStars, setRatingStars]=useState([]);
-    const rating=route.params.rating;
+    const wholeRating=Math.round(route.params.rating);
     useEffect(()=>{
         let temp=[];
         for(let i=0;i<5;i++){
             temp.push(
-                <AntDesign name={i<rating?'star':'staro'} size={scale(15)} color={colors.third} />
+                <AntDesign name={i<wholeRating?'star':'staro'} size={scale(15)} color={colors.third} />
             )
         }
         setRatingStars(temp);

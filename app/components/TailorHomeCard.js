@@ -13,11 +13,12 @@ export default function TailorHomeCard({id, name, description, price, isNew, rat
 
 const [ratingStars, setRatingStars] =useState([]);
 let ratingStarsArray=[];
+const wholeRating=Math.round(rating);
 useEffect(()=>{
     for(let i=0;i<5;i++){
         ratingStarsArray.push(
             <TouchableWithoutFeedback key={i}>
-                <AntDesign name={i<rating?'star':'staro'} size={scale(10)} color={colors.third} />
+                <AntDesign name={i<wholeRating?'star':'staro'} size={scale(10)} color={colors.third} />
             </TouchableWithoutFeedback>
         );
         setRatingStars(ratingStarsArray);

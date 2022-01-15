@@ -6,11 +6,11 @@ import colors from '../config/colors';
 import fonts from '../config/fonts';
 import AppText  from './AppText';
 
-function ProductCard({id, image, title, description, price, onPress}) {
+function ProductCard({id, imageUrls, title, description, price, onPress}) {
   return (
     
         <TouchableWithoutFeedback onPress={onPress}>
-          {image?
+          {imageUrls?
           <View style={{
             width:scale(135),
             height:scale(190),
@@ -27,7 +27,7 @@ function ProductCard({id, image, title, description, price, onPress}) {
           <Image style={{borderRadius:scale(12)}} resizeMode={'cover'} source={{
               width:scale(120),
               height:scale(140),
-              uri:image,
+              uri:imageUrls[0],
               }}/>
           <View style={{alignItems:'center', paddingTop:scale(3), flexDirection:'column'}}>
             <AppText text={title} fontSize={fonts.fontSize.heading} fontWeight={fonts.fontWiegth.heading} fontFamily={fonts.fontFamily.funky} color={colors.third}/>
