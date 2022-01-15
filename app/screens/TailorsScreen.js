@@ -6,9 +6,8 @@ import TailorHomeCardList from '../components/TailorHomeCardList';
 import colors from '../config/colors';
 import Constants  from 'expo-constants';
 import HeadSection from '../components/HeadSection';
-import AppButton from '../components/AppButton';
 
-function TailorsScreen({navigation}) {
+function TailorsScreen(props) {
     return (
         <>
         <HeadSection title='Tailors' />
@@ -21,7 +20,7 @@ function TailorsScreen({navigation}) {
 
 const styles = StyleSheet.create({
     container:{
-    //paddingHorizontal:scale(5),
+    paddingBottom:scale(50),
     backgroundColor:colors.screenBackground,
     }
 })

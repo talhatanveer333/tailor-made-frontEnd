@@ -49,7 +49,7 @@ useEffect(()=>{
             </View>
             <View style={{paddingTop:10, alignItems:'center'}}>
                 <AppText text={name} fontSize={fonts.fontSize.headingPro} fontWeight={fonts.fontWiegth.heading} color={colors.text} />
-                <AppText numberOfLines={2} text={description} fontSize={fonts.fontSize.heading} fontWeight={fonts.fontWiegth.text} color={colors.hint} />
+                <AppText numberOfLines={2} text={`${description.street}, ${description.province}`} fontSize={fonts.fontSize.heading} fontWeight={fonts.fontWiegth.text} color={colors.hint} />
                 <View style={{flexDirection:'row', marginTop:scale(3)}}>{ratingStars}</View>
             </View>
         </View>

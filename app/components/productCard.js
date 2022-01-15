@@ -13,7 +13,7 @@ function ProductCard({id, imageUrls, title, description, price, onPress}) {
           {imageUrls?
           <View style={{
             width:scale(135),
-            height:scale(190),
+            height:scale(200),
             backgroundColor:colors.secondary,
             borderRadius:scale(12),
             alignItems: 'center',
@@ -26,12 +26,12 @@ function ProductCard({id, imageUrls, title, description, price, onPress}) {
           }}>
           <Image style={{borderRadius:scale(12)}} resizeMode={'cover'} source={{
               width:scale(120),
-              height:scale(140),
+              height:scale(145),
               uri:imageUrls[0],
               }}/>
-          <View style={{alignItems:'center', paddingTop:scale(3), flexDirection:'column'}}>
+          <View style={{alignItems:'center', paddingTop:scale(15), flexDirection:'column'}}>
             <AppText text={title} fontSize={fonts.fontSize.heading} fontWeight={fonts.fontWiegth.heading} fontFamily={fonts.fontFamily.funky} color={colors.third}/>
-            <AppText text={`${price} RS`} fontSize={fonts.fontSize.heading} fontWeight={fonts.fontWiegth.heading} fontFamily={fonts.fontFamily.primary} color={colors.third}/>
+            <AppText text={`${price} RS`} fontSize={fonts.fontSize.heading} fontWeight={fonts.fontWiegth.heading} fontFamily={fonts.fontFamily.primary} color={colors.third} paddingTop={scale(2)}/>
           </View>
           </View>
           :
