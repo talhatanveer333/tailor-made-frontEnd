@@ -20,7 +20,7 @@ function TailorsScreen(props) {
 
 const styles = StyleSheet.create({
     container:{
-    paddingBottom:scale(50),
+    paddingBottom:scale(70),
     backgroundColor:colors.screenBackground,
     }
 })

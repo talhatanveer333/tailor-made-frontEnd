@@ -39,7 +39,7 @@ function TailorDetailsScreen({route}) {
                         <AppText numberOfLines={1} text={route.params.name} fontSize={fonts.fontSize.headingPro1} fontWieght={fonts.fontWiegth.headingPro} color={colors.third} fontFamily={fonts.fontFamily.primary}/>
                         <View style={{flexDirection:'row', right:scale(5), position:'absolute'}}>{ratingStars}</View>           
                     </View>
-                    <AppText numberOfLines={3} text={`${route.params.description.street}, ${route.params.description.province} ${route.params.description.country}`} fontSize={fonts.fontSize.heading} fontWieght={fonts.fontWiegth.heading} color={colors.hint} fontFamily={fonts.fontFamily.primary}/>
+                    <AppText numberOfLines={3} text={`${route.description}\n${route.params.address.street}, ${route.params.address.province} ${route.params.address.country}`} fontSize={fonts.fontSize.heading} fontWieght={fonts.fontWiegth.heading} color={colors.hint} fontFamily={fonts.fontFamily.primary}/>
                 </View>
                 <View style={{paddingHorizontal:scale(10), backgroundColor:colors.screenBackground, paddingTop:scale(20)}}>
                     <AppText numberOfLines={1} text='Catalog' fontSize={fonts.fontSize.headingPro1} fontWieght={fonts.fontWiegth.headingPro} color={colors.third} fontFamily={fonts.fontFamily.primary}/>

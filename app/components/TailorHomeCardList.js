@@ -121,7 +121,7 @@ function TailorHomeCardList() {
     };
     useEffect(()=>{
         getTailorsList();
-    },[1]);
+    },[]);
 if(tailors)    
     return (
         <FlatList
@@ -132,7 +132,7 @@ if(tailors)
             numColumns={2}
             data={tailors}
             keyExtractor={tailors=>tailors._id.toString()}
-            renderItem={({item}) => <TailorHomeCard id={item._id} name={item.name} description={item.address} rating={item.rating} image={item.imageUrl} onPress={()=>navigation.push('TailorDetailsScreen',{name:item.name, rating:item.rating, id:item.id, imageUrl:item.imageUrl, description:item.address})} />}
+            renderItem={({item}) => <TailorHomeCard id={item._id} name={item.name} description={item.intro} address={item.address} rating={item.rating} image={item.imageUrl} onPress={()=>navigation.push('TailorDetailsScreen',{name:item.name, rating:item.rating, id:item.id, imageUrl:item.imageUrl, description:item.intro, address:item.address})} />}
             />
     );
 

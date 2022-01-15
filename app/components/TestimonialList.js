@@ -51,7 +51,7 @@ function TestimonialList(props) {
         horizontal={true}
         data={testimonials}
         keyExtractor={testimonials => testimonials._id.toString()}
-        renderItem={({item})=><TestimonialCard id={item._id} name={item.author} rating={item.rating} comment={item.comment} image={item.authorImage} />}
+        renderItem={({item})=><TestimonialCard id={item._id} name={item.author.name} rating={item.rating} authorRating={item.author.rating} comment={item.comment} image={item.author.imageUrl} />}
         />
     );
 }

@@ -7,17 +7,26 @@ import colors from '../config/colors';
 import fonts from '../config/fonts';
 import AppText from './AppText';
 
-function TestimonialCard({name, rating, comment, image}) {
+function TestimonialCard({name, rating, comment, image, authorRating}) {
     const [ratingStars, setRatingStars]=useState([]);
-    const wholeRating=Math.round( rating );
+    const [authorRatingStars, setAuthorRatingStars]=useState([]);
+    const wholeRating=Math.round( authorRating );
+    const wholeAuthorRating=Math.round(rating);
     useEffect(()=>{
         let temp=[];
         for(let i=0;i<5;i++){
             temp.push(
-                <AntDesign name={i<wholeRating?'star':'staro'} size={scale(8)} color={colors.third} />
+                <AntDesign name={i<wholeRating?'star':'staro'} size={scale(6)} color={colors.hint} />
             )
         }
         setRatingStars(temp);
+        temp=[];
+        for(let i=0;i<5;i++){
+            temp.push(
+                <AntDesign name={i<wholeAuthorRating?'star':'staro'} size={scale(12)} color={colors.third} />
+            )
+        }
+        setAuthorRatingStars(temp);
     },[]);
     return (
         <View style={{
@@ -40,12 +49,10 @@ function TestimonialCard({name, rating, comment, image}) {
                     <AppText text={name} fontFamily={fonts.fontFamily.primary} fontSize={fonts.fontSize.heading} fontWeight={fonts.fontWiegth.heading} color={colors.third}/>
                     <View style={{flexDirection:'row'}}>
                         {ratingStars}
-                        {/* <AntDesign name='star' size={scale(8)} color={colors.third} />
-                        <AntDesign name='star' size={scale(8)} color={colors.third} />
-                        <AntDesign name='star' size={scale(8)} color={colors.third} />
-                        <AntDesign name='star' size={scale(8)} color={colors.third} />
-                        <AntDesign name='staro' size={scale(8)} color={colors.third} /> */}
                     </View>
+                </View>
+                <View style={{flexDirection:'row', position:'absolute', right:5, top:5}}>
+                        {authorRatingStars}
                 </View>
             </View>
             <View style={{borderWidth:scale(0.5), borderColor:colors.third, borderRadius:scale(5), padding:scale(5), justifyContent:'center', alignItems:'center', marginTop:scale(15)}}>

@@ -1,6 +1,6 @@
 import apiObject from "./apiObject";
 
-const endpoint='/feedbacks/user/61e1631cc6633c19d8bbb092';
+const endpoint='/feedbacks/user/61e2c9a2661de02514930fcf';
 
 const getUserFeedbacks= () => apiObject.get(endpoint);
 
