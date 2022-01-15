@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import {NavigationContainer} from '@react-navigation/native';
 import AppLoading from 'expo-app-loading';
 
-import AuthContext from './app/auth/context';
+import AuthContext from './app/auth/authContext';
 import AppNavigator from './app/navigation/AppNavigator';
 import AuthNavigator from './app/navigation/AuthNavigator';
 import AuthStore from './app/auth/authStorage';
@@ -30,7 +30,7 @@ const restoreUserData = async()=>{
   const user=await AuthStore.getUser();
   if(user) setUser(user);
 
-  await restoreCart();
+  //await restoreCart();
 }
 
 
@@ -42,11 +42,10 @@ return(
 
   return (
     <>
-    
     <AuthContext.Provider value={{user, setUser}}>
       <CartContext.Provider value={{cart, setCart}}>
         <NavigationContainer >
-          <AppNavigator />
+          {user ? <AppNavigator /> : <AuthNavigator />}
           {/* <TempScreen /> */}
         </NavigationContainer>
         </CartContext.Provider>

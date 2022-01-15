@@ -2,7 +2,7 @@ import React, {useContext} from 'react';
 import {View, Image, Text, StyleSheet} from 'react-native';
 import {scale} from 'react-native-size-matters';
 
-import AuthContext from '../auth/context';
+import AuthContext from '../auth/authContext';
 import colors from '../config/colors';
 import Constants from 'expo-constants';
 import AppText from '../components/AppText';

@@ -5,10 +5,10 @@ import Constants from 'expo-constants';
 
 import OptionsList from './../components/SettingsOptionsList';
 import HeadSection from '../components/HeadSection';
-import AuthContext from '../auth/context';
 import Button from '../components/AppButton';
 import colors from '../config/colors';
 import fonts from '../config/fonts';
+import AuthContext from '../auth/authContext';
 
 
 function SettingsScreen(props) {

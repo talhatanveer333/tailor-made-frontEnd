@@ -5,6 +5,7 @@ const key="authToken";
 
 const storeToken = async (authToken) =>{
     try{
+        console.log(`Token: ${authToken}`);
         await SecureStore.setItemAsync(key, authToken);
     }
     catch(err)
@@ -34,9 +35,6 @@ const removeToken=async ()=>{
 const getUser=async()=>{
     const token=await getToken();
     return token ? jwtDecode(token) : null;
-    //return null;
-    
-    
 }
 
 export default {storeToken, removeToken, getUser, getToken}

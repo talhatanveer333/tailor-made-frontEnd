@@ -1,9 +1,9 @@
 import apiObject from './apiObject';
 
-const endpoint='/products';
+const endpoint='/products/tailor/61e162b0c6633c19d8bbb091';
 
-const getProducts = () => apiObject.get(endpoint);
+const getCatalog = () => apiObject.get(endpoint);
 
 export default{
-    getProducts,
+    getCatalog,
 };
