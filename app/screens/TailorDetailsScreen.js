@@ -39,19 +39,19 @@ function TailorDetailsScreen({route}) {
                         <AppText numberOfLines={1} text={route.params.name} fontSize={fonts.fontSize.headingPro1} fontWieght={fonts.fontWiegth.headingPro} color={colors.third} fontFamily={fonts.fontFamily.primary}/>
                         <View style={{flexDirection:'row', right:scale(5), position:'absolute'}}>{ratingStars}</View>           
                     </View>
-                    <AppText numberOfLines={3} text={`${route.description}\n${route.params.address.street}, ${route.params.address.province} ${route.params.address.country}`} fontSize={fonts.fontSize.heading} fontWieght={fonts.fontWiegth.heading} color={colors.hint} fontFamily={fonts.fontFamily.primary}/>
+                    <AppText numberOfLines={3} text={`${route.params.description}\n${route.params.address.street}, ${route.params.address.province}`} fontSize={fonts.fontSize.heading} fontWieght={fonts.fontWiegth.heading} color={colors.hint} fontFamily={fonts.fontFamily.primary}/>
                 </View>
                 <View style={{paddingHorizontal:scale(10), backgroundColor:colors.screenBackground, paddingTop:scale(20)}}>
                     <AppText numberOfLines={1} text='Catalog' fontSize={fonts.fontSize.headingPro1} fontWieght={fonts.fontWiegth.headingPro} color={colors.third} fontFamily={fonts.fontFamily.primary}/>
                 </View>
                 <View style={{backgroundColor:colors.screenBackground}}>
-                    <Catalog />
+                    <Catalog tailorId={route.params.id} />
                 </View>
                 <View style={{paddingHorizontal:scale(10), backgroundColor:colors.screenBackground, paddingTop:scale(20), paddingBottom:scale(10)}}>
                     <AppText numberOfLines={1} text='Testimonials' fontSize={fonts.fontSize.headingPro1} fontWieght={fonts.fontWiegth.headingPro} color={colors.third} fontFamily={fonts.fontFamily.primary}/>
                 </View>
                 <View style={{backgroundColor:colors.screenBackground1}}>
-                    <TestimonialList />
+                    <TestimonialList userId={route.params.id} />
                 </View>
                 <View style={{paddingHorizontal:scale(10), backgroundColor:colors.screenBackground, paddingTop:scale(20)}}>
                     <AppText numberOfLines={1} text='Recommendations' fontSize={fonts.fontSize.headingPro1} fontWieght={fonts.fontWiegth.headingPro} color={colors.third} fontFamily={fonts.fontFamily.primary}/>

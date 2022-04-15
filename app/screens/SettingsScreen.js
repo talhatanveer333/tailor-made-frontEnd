@@ -15,24 +15,21 @@ function SettingsScreen(props) {
 const {user, setUser}=useContext(AuthContext);
     return (
         <View style={styles.mainContainer}>
-            <ScrollView style={styles.scrollView}>
-
             <HeadSection title={'Settings'}/>
-            
-            
+            <ScrollView style={styles.scrollView}>            
             <View style={styles.lowerContainer}>
                 
                 <Text style={styles.heading}>My Settings</Text>
                 <View style={styles.profileDataContainer}>
                         <Image style={styles.profileImage} resizeMode={'cover'} source={{
-                            uri:'https://picsum.photos/id/241/200/300',
+                            uri:`${user.imageUrl}`,
                         }}/>
                         <View style={styles.iconView}>
                             <Entypo name='camera' size={15} color={colors.third} /> 
                         </View>
                         <View style={styles.contentContainer}>
-                            <Text style={styles.name}>{'Talha' + ' ' + 'Tanveer'}</Text>
-                            <Text style={styles.email}>{'talhatanveer333@gmail.com'}</Text>
+                            <Text style={styles.name}>{`${user.name}`}</Text>
+                            <Text style={styles.email}>{`${user.email}`}</Text>
                         </View>
                 </View>
                     

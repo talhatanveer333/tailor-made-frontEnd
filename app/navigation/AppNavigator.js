@@ -5,6 +5,8 @@ import {MaterialCommunityIcons, Ionicons, Octicons} from '@expo/vector-icons';
 
 import TailorsScreen from '../screens/TailorsScreen';
 import TailorDetailsScreen from '../screens/TailorDetailsScreen';
+import ProductDetailsScreen from '../screens/ProductDetailsScreen';
+import CartScreen from '../screens/CartScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 import colors from '../config/colors';
 
@@ -24,6 +26,10 @@ const TailorNavigator=()=>
         <Stack.Screen
         name='TailorDetailsScreen'
         component={TailorDetailsScreen}
+        />
+        <Stack.Screen
+        name='ProductDetailsScreen'
+        component={ProductDetailsScreen}
         />
     </Stack.Navigator>
 
@@ -50,6 +56,13 @@ const AppNavigator=()=>(
         options={{
         headerShown:false,            
         tabBarIcon:({size, color}) => <Ionicons name='settings' color={color} size={size} />
+        }}
+        />
+        <BottomTab.Screen name='Cart'
+        component={CartScreen}
+        options={{
+        headerShown:false,            
+        tabBarIcon:({size, color}) => <Ionicons name='cart' color={color} size={size} />
         }}
         />
     </BottomTab.Navigator>

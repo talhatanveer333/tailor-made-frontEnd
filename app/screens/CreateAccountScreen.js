@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { View, Text, StyleSheet, Alert} from 'react-native';
 import {Formik} from 'formik';
 import * as Yup from 'yup';
+import jwtDecode from 'jwt-decode';
 
 import InputField from '../components/InputField';
 import AppText from '../components/AppText';
@@ -9,6 +10,8 @@ import colors from '../config/colors';
 import fontConfig from '../config/fonts';
 import AppButton from '../components/AppButton';
 import userApi from '../api/userApi';
+import authStorage from '../auth/authStorage';
+import authContext from '../auth/authContext';
 
 
 const validationSchema= Yup.object().shape({
@@ -20,22 +23,30 @@ const validationSchema= Yup.object().shape({
 function createAccountScreen(props) {
 const [isErr, setIsErr] = useState(false); 
 const [Err, setErr] = useState('Account already exists.');
+const {setUser}=useContext(authContext);
 
-const createAccount = async ({email,firstName,password})=>{
-    const result=await userApi.signUp(email,firstName,password);
+const createAccount = async ({email,name,password})=>{
+    const result=await userApi.signUp(email,name,password);
     if(!result.ok){
-    setErr(result.data);
-    return setIsErr(true);
+        setErr(result.data);
+        return setIsErr(true);
     }
     setIsErr(false);
-    
-    
+    console.log(result.data);
+    authStorage.storeToken(result.data);
+    setUser(jwtDecode(result.data));    
 }
 
     return (
-        <View style={styles.mainContainer}>
+        <View style={{
+        flex:1,
+        justifyContent:'center',
+        alignItems: 'center',
+        padding:10,
+        backgroundColor:colors.screenBackground1,
+        }}>
             <Formik
-            initialValues={{email:'', password:'', firstName:''}}
+            initialValues={{email:'', password:'', name:''}}
             onSubmit={createAccount}
             validationSchema={validationSchema}
             >
@@ -57,9 +68,9 @@ const createAccount = async ({email,firstName,password})=>{
                 <InputField
                 autoCapitalize='none'
                 autoCorrent={false}
-                placeholder='First Name'
-                onChangeText={handleChange('firstName')}
-                onBlur={() => setFieldTouched('firstName')}
+                placeholder='Full Name'
+                onChangeText={handleChange('name')}
+                onBlur={() => setFieldTouched('name')}
                 />
                 {touched.name  && errors.name &&  <AppText  text={errors.name} color={colors.danger} fontSize={fontConfig.fontSize.text} paddingLeft={15}/>}
 
@@ -82,15 +93,5 @@ const createAccount = async ({email,firstName,password})=>{
         </View>
     );
 }
-
-const styles = StyleSheet.create({
-    mainContainer:{
-        flex:1,
-        justifyContent:'center',
-        alignItems: 'center',
-        padding:10,
-        backgroundColor:colors.screenBackgroung,
-    }
-})
 
 export default createAccountScreen;

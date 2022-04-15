@@ -6,19 +6,31 @@ const offers=[
     {
         id:1,
         name:'Standard',
-        price:3400,
+        price:1099,
         image:`https://picsum.photos/200/300?random=${Math.random() * 10}`,
     },
     {
         id:2,
         name:'Urgent',
-        price:3800,
+        price:1300,
         image:`https://picsum.photos/200/300?random=${Math.random() * 10}`,
     },
     {
         id:3,
         name:'Customized',
-        price:4000,
+        price:1500,
+        image:`https://picsum.photos/200/300?random=${Math.random() * 10}`,
+    },
+    {
+        id:4,
+        name:'2 in 1',
+        price:2000,
+        image:`https://picsum.photos/200/300?random=${Math.random() * 10}`,
+    },
+    {
+        id:5,
+        name:'Urg + Custom',
+        price:2500,
         image:`https://picsum.photos/200/300?random=${Math.random() * 10}`,
     }
     

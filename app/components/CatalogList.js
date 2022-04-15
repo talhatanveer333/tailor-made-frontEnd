@@ -1,8 +1,12 @@
 import React, {useState,useEffect} from 'react';
 import {FlatList} from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 import productsApi from '../api/productsApi';
 import ProductCard from './ProductCard';
+import AppText from './AppText';
+import colors from '../config/colors';
+import fonts from '../config/fonts';
 
 // const products=[
 //     {
@@ -38,13 +42,12 @@ import ProductCard from './ProductCard';
 //         image:`https://picsum.photos/800/800?random=${Math.random() * 10}`,
 //     },
 // ]
-function CatalogList(props) {
-
+function CatalogList({tailorId}) {
+const navigation = useNavigation();
 const [products, setProducts]=useState([]);
 
-const getCatalog= async()=>{
-    const response=await productsApi.getCatalog();
-    //console.log(response.data);
+const  getCatalog= async()=>{
+    const response=await productsApi.getCatalog(tailorId);
     setProducts(response.data);
 }
 
@@ -52,15 +55,19 @@ useEffect(()=>{
     getCatalog();
 },[]);
 
+if(products.length>0)
     return (
         <FlatList
             horizontal={true}
             nestedScrollEnabled
             data={products}
             keyExtractor={products=>products._id.toString()}
-            renderItem={({item}) => <ProductCard imageUrls={item.imageUrl} id={item._id} title={item.name} price={item.price} isNew={item.isNew}/>}
+            renderItem={({item}) => <ProductCard imageUrls={item.imageUrl} id={item._id} title={item.name} price={item.price} isNew={item.isNew} onPress={() => navigation.push('ProductDetailsScreen')}/>}
             />
-    );
+        );
+        return (
+            <AppText text={`No catalog found.`} color={colors.danger} fontSize={fonts.fontSize.text} alignSelf='center' />
+        );
 }
 
 export default CatalogList;

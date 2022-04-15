@@ -16,7 +16,7 @@ const {user, setUser}=useContext(AuthContext);
             fontSize={fonts.fontSize.headingPro1}/>
             <Image style={styles.profileImage} resizeMode={'cover'} 
             source={{
-                uri:'https://picsum.photos/id/241/200/300',
+                uri:`${user.imageUrl}`,
             }}/>
         </View>
     );

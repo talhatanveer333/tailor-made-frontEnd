@@ -1,16 +1,20 @@
 import React from 'react';
-import {View, StyleSheet,Text,Image} from 'react-native';
+import {View, StyleSheet,Text,Image, TouchableWithoutFeedback} from 'react-native';
 import {scale} from 'react-native-size-matters';
+import Swipeable from 'react-native-gesture-handler/Swipeable';
 
 import colors from '../config/colors';
 import fonts from '../config/fonts';
 import AppText from './AppText';
+import CartSwipeable from './CartSwipeable';
 
 function CartCard(props) {
     return (
+        <Swipeable renderRightActions={CartSwipeable}>
+        <TouchableWithoutFeedback>
         <View style={styles.container}>
             <Image style={{borderRadius:scale(35), borderWidth:scale(1), borderColor:colors.third}} resizeMode={'cover'} source={{
-                    uri:`https://picsum.photos/800/800?random=${Math.random() * 10}`,
+                    uri:`${props.imageUrl}`,
                     width:scale(60),
                     height:scale(60),
             }}/>
@@ -32,6 +36,8 @@ function CartCard(props) {
                     <AppText numberOfLines={1} text={props.price} fontFamily={fonts.fontFamily.funky} fontWieght={fonts.fontWiegth.headingPro} fontSize={fonts.fontSize.headingPro} color={colors.price}  />
             </View>
         </View>
+        </TouchableWithoutFeedback>
+        </Swipeable>
     );
 }
 

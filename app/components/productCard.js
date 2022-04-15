@@ -13,7 +13,7 @@ function ProductCard({id, imageUrls, title, description, price, onPress}) {
           {imageUrls?
           <View style={{
             width:scale(135),
-            height:scale(200),
+            height:scale(210),
             backgroundColor:colors.secondary,
             borderRadius:scale(12),
             alignItems: 'center',
@@ -29,17 +29,17 @@ function ProductCard({id, imageUrls, title, description, price, onPress}) {
               height:scale(145),
               uri:imageUrls[0],
               }}/>
-          <View style={{alignItems:'center', paddingTop:scale(15), flexDirection:'column'}}>
-            <AppText text={title} fontSize={fonts.fontSize.heading} fontWeight={fonts.fontWiegth.heading} fontFamily={fonts.fontFamily.funky} color={colors.third}/>
-            <AppText text={`${price} RS`} fontSize={fonts.fontSize.heading} fontWeight={fonts.fontWiegth.heading} fontFamily={fonts.fontFamily.primary} color={colors.third} paddingTop={scale(2)}/>
+          <View style={{alignItems:'center', justifyContent:'center', paddingTop:scale(10), flexDirection:'column'}}>
+            <AppText numberOfLines={1} text={title} fontSize={fonts.fontSize.heading} fontWeight={fonts.fontWiegth.heading} fontFamily={fonts.fontFamily.funky} color={colors.third}/>
+            <AppText numberOfLines={1} text={`${price} RS`} fontSize={fonts.fontSize.heading} fontWeight={fonts.fontWiegth.heading} fontFamily={fonts.fontFamily.primary} color={colors.third} paddingTop={scale(2)}/>
           </View>
           </View>
           :
           <View style={{
-            width:scale(100),
-            height:scale(100),
+            width:scale(110),
+            height:scale(110),
             backgroundColor:colors.secondary,
-            borderRadius:scale(12),
+            borderRadius:scale(60),
             alignItems: 'center',
             overflow: 'hidden',
             marginTop:scale(10),

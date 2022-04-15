@@ -3,56 +3,33 @@ import { FlatList } from 'react-native';
 
 import TestimonialCard from './TestimonialCard';
 import feedbacksApi from '../api/feedbacksApi';
+import AppText from './AppText';
+import colors from '../config/colors';
+import fonts from '../config/fonts';
 
-// const testimonials=[
-//     {
-//         id:1,
-//         name:'Talha Tanveer',
-//         rating:3,
-//         comment:'Excellent! This guy is awesome. He completed his work before deadline. Will surely contact you for future projects. Excellent! This guy is awesome. He completed his work before deadline. Will surely contact you for future projects.',
-//         image:`https://picsum.photos/800/800?random=${Math.random() * 10}`,
-//     },
-//     {
-//         id:2,
-//         name:'Mohsin Hassan',
-//         rating:4,
-//         comment:'Excellent! This guy is awesome. He completed his work before deadline. Will surely contact you for future projects. Excellent! This guy is awesome. He completed his work before deadline. Will surely contact you for future projects.',
-//         image:`https://picsum.photos/800/800?random=${Math.random() * 10}`,
-//     },
-//     {
-//         id:3,
-//         name:'Azad Bhai',
-//         rating:5,
-//         comment:'Excellent! This guy is awesome. He completed his work before deadline. Will surely contact you for future projects. Excellent! This guy is awesome. He completed his work before deadline. Will surely contact you for future projects.',
-//         image:`https://picsum.photos/800/800?random=${Math.random() * 10}`,
-//     },
-//     {
-//         id:4,
-//         name:'Cappy Jani',
-//         rating:3,
-//         comment:'Excellent! This guy is awesome. He completed his work before deadline. Will surely contact you for future projects. Excellent! This guy is awesome. He completed his work before deadline. Will surely contact you for future projects.',
-//         image:`https://picsum.photos/800/800?random=${Math.random() * 10}`,
-//     }
-// ]
 
-function TestimonialList(props) {
+function TestimonialList({userId}) {
     const [testimonials, setTestimonials]=useState([]);
     const getUserTestimonials=async()=>{
-        const response=await feedbacksApi.getUserFeedbacks();
+        const response=await feedbacksApi.getUserFeedbacks(userId);
         setTestimonials(response.data);
         //console.log(response.data);
     };
     useEffect(()=>{
         getUserTestimonials();
     },[]);
+if(testimonials.length>0)
     return (
         <FlatList 
         nestedScrollEnabled
         horizontal={true}
         data={testimonials}
-        keyExtractor={testimonials => testimonials._id.toString()}
+        keyExtractor={testimonial=>testimonial._id.toString()}
         renderItem={({item})=><TestimonialCard id={item._id} name={item.author.name} rating={item.rating} authorRating={item.author.rating} comment={item.comment} image={item.author.imageUrl} />}
         />
+    );
+    return (
+        <AppText text={`No testimonials found.`} color={colors.danger} fontSize={fonts.fontSize.text} alignSelf='center' />
     );
 }
 

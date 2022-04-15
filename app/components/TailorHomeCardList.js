@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import {FlatList} from 'react-native';
+import {FlatList, ToastAndroid} from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 import TailorHomeCard  from './TailorHomeCard';
@@ -114,28 +114,29 @@ import AppText from '../components/AppText';
 
 function TailorHomeCardList() {
     const navigation = useNavigation();
+    const [refreshing, setRefreshing]=useState(false);
     const [tailors, setTailors]=useState([]);
     const getTailorsList=async ()=>{
         const response=await userApi.getTailorsList();
+        //console.log(response.data);
         setTailors(response.data);
     };
     useEffect(()=>{
         getTailorsList();
     },[]);
-if(tailors)    
+if(tailors.length>0)    
     return (
         <FlatList
-            //refreshing={refreshing}
-            //onRefresh={()=> console.log('refreshing')}
+            refreshing={refreshing}
+            onRefresh={()=> ToastAndroid.show('Refreshing', ToastAndroid.SHORT) }
             nestedScrollEnabled
             showsHorizontalScrollIndicator={false}
             numColumns={2}
             data={tailors}
             keyExtractor={tailors=>tailors._id.toString()}
-            renderItem={({item}) => <TailorHomeCard id={item._id} name={item.name} description={item.intro} address={item.address} rating={item.rating} image={item.imageUrl} onPress={()=>navigation.push('TailorDetailsScreen',{name:item.name, rating:item.rating, id:item.id, imageUrl:item.imageUrl, description:item.intro, address:item.address})} />}
+            renderItem={({item}) => <TailorHomeCard id={item._id} name={item.name} description={item.intro} address={item.address} rating={item.rating} image={item.imageUrl} onPress={()=>navigation.push('TailorDetailsScreen',{name:item.name, rating:item.rating, id:item._id, imageUrl:item.imageUrl, description:item.intro, address:item.address})} />}
             />
     );
-
     return( // if server crashed
         <>
             <AppText text={`503 Service Unavailable`} color={colors.danger} fontSize={fonts.fontSize.headingPro} alignSelf='center' />

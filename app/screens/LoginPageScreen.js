@@ -35,7 +35,13 @@ function LoginPageScreen({navigator}) {
     }
 
     return (
-        <View style={styles.container}>
+        <View style={{
+        flex:1,
+        justifyContent:'center',
+        alignItems:'center',
+        padding:10,
+        backgroundColor:colors.screenBackground1,
+        }}>
             
             <Formik
             initialValues={{email:'', password:''}}
@@ -74,15 +80,5 @@ function LoginPageScreen({navigator}) {
         </View>
     );
 }
-const styles = StyleSheet.create({
-    container:{
-        flex:1,
-        justifyContent:'center',
-        alignItems:'center',
-        padding:10,
-        backgroundColor:colors.screenBackgroung,
-        //paddingTop: Constants.statusBarHeight+10,
-    }
-})
 
 export default LoginPageScreen;

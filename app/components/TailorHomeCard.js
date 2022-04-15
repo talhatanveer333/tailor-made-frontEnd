@@ -33,7 +33,7 @@ useEffect(()=>{
             alignItems:'center',
             width:scale(180),
             height:scale(190),
-            marginBottom:scale(12),
+            marginBottom:scale(25),
         }}>
             <View style={{
                 borderRadius:100,

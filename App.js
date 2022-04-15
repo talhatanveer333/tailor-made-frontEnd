@@ -10,7 +10,7 @@ import AuthStore from './app/auth/authStorage';
 import CartStorage from './app/cart/cartStorage';
 import CartContext from './app/cart/context';
 import colors from './app/config/colors';
-import TempScreen from './app/screens/TailorsScreen';
+import TempScreen from './app/screens/CartScreen';
 
 
 export default function App() {
