@@ -68,6 +68,45 @@ function LoginPageScreen({ navigator }) {
                 paddingLeft={15}
               />
             )}
+=======
+    return (
+        <View style={{
+        flex:1,
+        justifyContent:'center',
+        alignItems:'center',
+        padding:10,
+        backgroundColor:colors.screenBackground1,
+        }}>
+            
+            <Formik
+            initialValues={{email:'', password:''}}
+            onSubmit={login}
+            validationSchema={validationSchema}
+            >
+            {({handleChange, touched, handleSubmit, setFieldTouched, errors})=>(
+            <>
+                {loginFailed && <AppText text={err} color={colors.danger} fontSize={fontConfig.fontSize.heading} alignSelf='center'/>}
+                <InputField
+                autoCapitalize='none'
+                autoCorrent={false}
+                placeholder='Email'
+                textContentType='emailAddress'
+                onBlur={()=>setFieldTouched('email')}
+                onChangeText={handleChange('email')}
+                />
+                {errors.email && touched.email && <AppText text={errors.email} color={colors.danger} fontSize={fontConfig.fontSize.text} paddingLeft={15} />}
+
+                <InputField
+                autoCapitalize='none'
+                autoCorrent={false}
+                placeholder='Password'
+                secureTextEntry
+                textContentType='password'
+                onBlur={()=>setFieldTouched('password')}
+                onChangeText={handleChange('password')}
+                />
+                {errors.password && touched.password && <AppText text={errors.password} color={colors.danger} fontSize={fontConfig.fontSize.text} paddingLeft={15} />}
+>>>>>>> 763ee3f93061c9e14bd05c001257ca4dd6c69528
 
             <InputField
               autoCapitalize="none"
@@ -99,6 +138,7 @@ function LoginPageScreen({ navigator }) {
     </View>
   );
 }
+<<<<<<< HEAD
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -109,5 +149,7 @@ const styles = StyleSheet.create({
     //paddingTop: Constants.statusBarHeight+10,
   },
 });
+=======
+>>>>>>> 763ee3f93061c9e14bd05c001257ca4dd6c69528
 
 export default LoginPageScreen;

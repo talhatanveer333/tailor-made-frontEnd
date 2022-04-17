@@ -1,8 +1,8 @@
 import apiObject from "./apiObject";
 
-const endpoint='/feedbacks/user/61e2c9a2661de02514930fcf';
+const endpoint='/feedbacks/user/';
 
-const getUserFeedbacks= () => apiObject.get(endpoint);
+const getUserFeedbacks= (userId) => apiObject.get(endpoint+userId);
 
 export default{
     getUserFeedbacks,

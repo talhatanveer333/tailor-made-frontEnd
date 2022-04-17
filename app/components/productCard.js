@@ -101,6 +101,54 @@ function ProductCard({ id, imageUrls, title, description, price, onPress }) {
         </View>
       )}
     </TouchableWithoutFeedback>
+=======
+    
+        <TouchableWithoutFeedback onPress={onPress}>
+          {imageUrls?
+          <View style={{
+            width:scale(135),
+            height:scale(210),
+            backgroundColor:colors.secondary,
+            borderRadius:scale(12),
+            alignItems: 'center',
+            overflow: 'hidden',
+            marginTop:scale(10),
+            elevation: scale(8), 
+            padding:scale(7),
+            marginLeft:scale(5),
+            marginBottom:scale(10),
+          }}>
+          <Image style={{borderRadius:scale(12)}} resizeMode={'cover'} source={{
+              width:scale(120),
+              height:scale(145),
+              uri:imageUrls[0],
+              }}/>
+          <View style={{alignItems:'center', justifyContent:'center', paddingTop:scale(10), flexDirection:'column'}}>
+            <AppText numberOfLines={1} text={title} fontSize={fonts.fontSize.heading} fontWeight={fonts.fontWiegth.heading} fontFamily={fonts.fontFamily.funky} color={colors.third}/>
+            <AppText numberOfLines={1} text={`${price} RS`} fontSize={fonts.fontSize.heading} fontWeight={fonts.fontWiegth.heading} fontFamily={fonts.fontFamily.primary} color={colors.third} paddingTop={scale(2)}/>
+          </View>
+          </View>
+          :
+          <View style={{
+            width:scale(110),
+            height:scale(110),
+            backgroundColor:colors.secondary,
+            borderRadius:scale(60),
+            alignItems: 'center',
+            overflow: 'hidden',
+            marginTop:scale(10),
+            elevation: scale(5), 
+            padding:scale(7),
+            marginLeft:scale(5),
+            marginBottom:scale(10),
+            justifyContent:'center',
+            alignItems:'center',
+          }}>
+            <AppText text={title} fontSize={fonts.fontSize.headingPro} fontWeight={fonts.fontWiegth.headingPro} fontFamily={fonts.fontFamily.funky} color={colors.third}/>
+            <AppText text={`${price} RS`} fontSize={fonts.fontSize.headingPro} fontWeight={fonts.fontWiegth.headingPro} fontFamily={fonts.fontFamily.primary} color={colors.third}/>
+          </View>}
+        </TouchableWithoutFeedback>
+>>>>>>> 763ee3f93061c9e14bd05c001257ca4dd6c69528
   );
 }
 
