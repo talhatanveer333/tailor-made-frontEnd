@@ -43,6 +43,7 @@ export default function TailorHomeCard({
   }, []);
 
   return (
+<<<<<<< HEAD
     <Pressable onPress={onPress}>
       <View
         style={{

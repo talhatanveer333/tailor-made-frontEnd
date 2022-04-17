@@ -10,6 +10,7 @@ import Catalog from "../components/CatalogList";
 import RecommendationList from "../components/TailorHomeCardList";
 import TestimonialList from "../components/TestimonialList";
 
+<<<<<<< HEAD
 function TailorDetailsScreen({ route, props }) {
   const [ratingStars, setRatingStars] = useState([]);
   const wholeRating = Math.round(route.params.rating);

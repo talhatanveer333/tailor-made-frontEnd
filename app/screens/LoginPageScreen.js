@@ -35,6 +35,7 @@ function LoginPageScreen({ navigator }) {
     setUser(jwtDecode(result.data));
   };
 
+<<<<<<< HEAD
   return (
     <View style={styles.container}>
       <Formik

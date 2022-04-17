@@ -3,6 +3,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createStackNavigator } from "@react-navigation/stack";
 import { MaterialCommunityIcons, Ionicons, Octicons } from "@expo/vector-icons";
 
+<<<<<<< HEAD
 import TailorsScreen from "../screens/TailorsScreen";
 import TailorDetailsScreen from "../screens/TailorDetailsScreen";
 import SettingsScreen from "../screens/SettingsScreen";

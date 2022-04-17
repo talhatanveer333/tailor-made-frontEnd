@@ -5,6 +5,7 @@ import CartCard from "../components/CartCard";
 
 const cartItems = [
   {
+<<<<<<< HEAD
     _id: 1,
     title: "Cotton Suit",
     details:
@@ -93,6 +94,7 @@ const cartItems = [
 
 
 function CartList(props) {
+<<<<<<< HEAD
   const [refreshing, setRefreshing] = useState(false);
   return (
     <FlatList

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from "react";
 import { View } from "react-native";
 =======
@@ -13,6 +14,7 @@ import HeadSection from '../components/HeadSection';
 import CartList from "../components/CartList";
 import colors from "../config/colors";
 function CartScreen(props) {
+<<<<<<< HEAD
   return (
     <View style={{ backgroundColor: colors.primary }}>
       <CartList />

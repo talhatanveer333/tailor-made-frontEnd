@@ -16,6 +16,7 @@ import AppText from "./AppText";
 
 function ProductCard({ id, imageUrls, title, description, price, onPress }) {
   return (
+<<<<<<< HEAD
     <TouchableWithoutFeedback onPress={onPress}>
       {imageUrls ? (
         <View
