@@ -29,6 +29,7 @@
     "yup": "^0.32.9"
   },
   "devDependencies": {
+    "@babel/code-frame": "^7.16.7",
     "@babel/core": "~7.9.0"
   },
   "private": true
