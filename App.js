@@ -1,6 +1,5 @@
 import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
-<<<<<<< HEAD
 import { NavigationContainer } from "@react-navigation/native";
 import AppLoading from "expo-app-loading";
 
@@ -12,20 +11,6 @@ import CartStorage from "./app/cart/cartStorage";
 import CartContext from "./app/cart/context";
 import colors from "./app/config/colors";
 import TempScreen from "./app/screens/FeedbackScreen";
-=======
-import {NavigationContainer} from '@react-navigation/native';
-import AppLoading from 'expo-app-loading';
-
-import AuthContext from './app/auth/authContext';
-import AppNavigator from './app/navigation/AppNavigator';
-import AuthNavigator from './app/navigation/AuthNavigator';
-import AuthStore from './app/auth/authStorage';
-import CartStorage from './app/cart/cartStorage';
-import CartContext from './app/cart/context';
-import colors from './app/config/colors';
-import TempScreen from './app/screens/CartScreen';
-
->>>>>>> 763ee3f93061c9e14bd05c001257ca4dd6c69528
 
 export default function App() {
   const [user, setUser] = useState();

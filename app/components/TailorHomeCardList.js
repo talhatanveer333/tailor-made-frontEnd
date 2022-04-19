@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from 'react';
-import {FlatList, ToastAndroid} from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+import React, { useEffect, useState } from "react";
+import { FlatList, ToastAndroid } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
-import TailorHomeCard  from './TailorHomeCard';
-import colors from '../config/colors';
-import fonts from '../config/fonts';
-import userApi from '../api/userApi';
-import AppText from '../components/AppText';
+import TailorHomeCard from "./TailorHomeCard";
+import colors from "../config/colors";
+import fonts from "../config/fonts";
+import userApi from "../api/userApi";
+import AppText from "../components/AppText";
 
 // const tailors=[
 //     {
@@ -111,38 +111,67 @@ import AppText from '../components/AppText';
 //     },
 // ]
 
-
 function TailorHomeCardList() {
-    const navigation = useNavigation();
-    const [refreshing, setRefreshing]=useState(false);
-    const [tailors, setTailors]=useState([]);
-    const getTailorsList=async ()=>{
-        const response=await userApi.getTailorsList();
-        //console.log(response.data);
-        setTailors(response.data);
-    };
-    useEffect(()=>{
-        getTailorsList();
-    },[]);
-if(tailors.length>0)    
+  const navigation = useNavigation();
+  const [refreshing, setRefreshing] = useState(false);
+  const [tailors, setTailors] = useState([]);
+  const getTailorsList = async () => {
+    const response = await userApi.getTailorsList();
+    //console.log(response.data);
+    setTailors(response.data);
+  };
+  useEffect(() => {
+    getTailorsList();
+  }, []);
+  if (tailors.length > 0)
     return (
-        <FlatList
-            refreshing={refreshing}
-            onRefresh={()=> ToastAndroid.show('Refreshing', ToastAndroid.SHORT) }
-            nestedScrollEnabled
-            showsHorizontalScrollIndicator={false}
-            numColumns={2}
-            data={tailors}
-            keyExtractor={tailors=>tailors._id.toString()}
-            renderItem={({item}) => <TailorHomeCard id={item._id} name={item.name} description={item.intro} address={item.address} rating={item.rating} image={item.imageUrl} onPress={()=>navigation.push('TailorDetailsScreen',{name:item.name, rating:item.rating, id:item._id, imageUrl:item.imageUrl, description:item.intro, address:item.address})} />}
-            />
+      <FlatList
+        refreshing={refreshing}
+        onRefresh={() => ToastAndroid.show("Refreshing", ToastAndroid.SHORT)}
+        nestedScrollEnabled
+        showsHorizontalScrollIndicator={false}
+        numColumns={2}
+        data={tailors}
+        keyExtractor={(tailors) => tailors._id.toString()}
+        renderItem={({ item }) => (
+          <TailorHomeCard
+            id={item._id}
+            name={item.name}
+            description={item.intro}
+            address={item.address}
+            rating={item.rating}
+            image={item.imageUrl}
+            onPress={() =>
+              navigation.push("TailorDetailsScreen", {
+                name: item.name,
+                rating: item.rating,
+                id: item._id,
+                imageUrl: item.imageUrl,
+                description: item.intro,
+                address: item.address,
+              })
+            }
+          />
+        )}
+      />
     );
-    return( // if server crashed
-        <>
-            <AppText text={`503 Service Unavailable`} color={colors.danger} fontSize={fonts.fontSize.headingPro} alignSelf='center' />
-            <AppText text={`Server busy, site may have moved ,or you lost your dial-up Internet connection.`} color={colors.danger} fontSize={fonts.fontSize.text} alignSelf='center' />
-        </>
-    );
+  return (
+    // if server crashed
+    <>
+      <AppText
+        text={`503 Service Unavailable`}
+        color={colors.danger}
+        fontSize={fonts.fontSize.headingPro}
+        alignSelf="center"
+      />
+      <AppText
+        text={`Server busy, site may have moved ,or you lost your dial-up Internet connection.`}
+        color={colors.danger}
+        fontSize={fonts.fontSize.text}
+        alignSelf="center"
+      />
+    </>
+  );
 }
 
 export default TailorHomeCardList;

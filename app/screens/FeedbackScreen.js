@@ -9,10 +9,12 @@ import fonts from "../config/fonts";
 import AppText from "../components/AppText";
 import AppButton from "../components/AppButton";
 import InputField from "../components/InputField";
+import feedbackApi from "../api/feedbacksApi";
 
-function FeedbackScreen({ tailor }) {
+function FeedbackScreen({ route }) {
   const [ratingStars, setRatingStars] = useState([]);
   const [rating, setRating] = useState(0);
+  const [comment, setComment] = useState("");
   useEffect(() => {
     handleClick(0);
   }, []);
@@ -39,8 +41,19 @@ function FeedbackScreen({ tailor }) {
       setRatingStars(ratingStarsArray);
     }
   };
-  const submitForm = () => {
-    alert(`Feedback submitted with rating ${rating}`);
+  const submitForm = async ({ comment }) => {
+    try {
+      //alert(`Feedback submitted with rating ${rating}`);
+
+      const result = await feedbackApi.postTailorFeedbak(
+        route.params.id,
+        rating,
+        comment
+      );
+      alert(`Feedback is submitted with rating ${rating} and ${comment}`);
+    } catch (e) {
+      alert("Error: " + e.message);
+    }
   };
   return (
     <View
@@ -51,12 +64,10 @@ function FeedbackScreen({ tailor }) {
     >
       <View style={{ backgroundColor: colors.screenBackground }}>
         <Image
-          style={{
-            borderBottomLeftRadius: 120,
-          }}
+          style={{ borderBottomLeftRadius: 120 }}
           resizeMode={"cover"}
           source={{
-            uri: `${tailor.imgUrl}`,
+            uri: `${route.params.imageUrl}`,
             width: scale(350),
             height: scale(250),
           }}
@@ -80,7 +91,7 @@ function FeedbackScreen({ tailor }) {
         <View style={{ flexDirection: "row", alignItems: "center" }}>
           <AppText
             numberOfLines={1}
-            text={tailor.name}
+            text={route.params.name}
             fontSize={fonts.fontSize.headingPro1}
             fontWieght={fonts.fontWiegth.headingPro}
             color={colors.third}
@@ -111,17 +122,19 @@ function FeedbackScreen({ tailor }) {
       >
         {ratingStars}
       </View>
-      <Formik initialValues={{ feedback: "" }} onSubmit={submitForm}>
+      <Formik initialValues={{ comment: "" }} onSubmit={submitForm}>
         {({ handleChange, touched, handleSubmit, setFieldTouched, errors }) => (
           <>
             <InputField
-              color={"white"}
+              color={colors.primary}
+              backgroundColor={colors.third}
+              padding={20}
               autoCapitalize="none"
               autoCorrent={false}
-              placeholder="Feedback"
+              placeholder="Comment"
               textContentType="text"
-              onBlur={() => setFieldTouched("feedback")}
-              onChangeText={handleChange("feedback")}
+              onBlur={() => setFieldTouched("comment")}
+              onChangeText={handleChange("comment")}
             />
             <AppButton
               title={"Submit"}

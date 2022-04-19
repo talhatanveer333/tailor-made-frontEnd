@@ -1,12 +1,12 @@
-import React, {useState,useEffect} from 'react';
-import {FlatList} from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+import React, { useState, useEffect } from "react";
+import { FlatList } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
-import productsApi from '../api/productsApi';
-import ProductCard from './ProductCard';
-import AppText from './AppText';
-import colors from '../config/colors';
-import fonts from '../config/fonts';
+import productsApi from "../api/productsApi";
+import ProductCard from "./ProductCard";
+import AppText from "./AppText";
+import colors from "../config/colors";
+import fonts from "../config/fonts";
 
 // const products=[
 //     {
@@ -42,32 +42,53 @@ import fonts from '../config/fonts';
 //         image:`https://picsum.photos/800/800?random=${Math.random() * 10}`,
 //     },
 // ]
-function CatalogList({tailorId}) {
-const navigation = useNavigation();
-const [products, setProducts]=useState([]);
+function CatalogList({ tailorId }) {
+  const navigation = useNavigation();
+  const [products, setProducts] = useState([]);
 
-const  getCatalog= async()=>{
-    const response=await productsApi.getCatalog(tailorId);
+  const getCatalog = async () => {
+    const response = await productsApi.getCatalog("61f05325530507f73f6c241e");
     setProducts(response.data);
-}
+  };
 
-useEffect(()=>{
+  useEffect(() => {
     getCatalog();
-},[]);
+  }, []);
 
-if(products.length>0)
+  if (products.length > 0)
     return (
-        <FlatList
-            horizontal={true}
-            nestedScrollEnabled
-            data={products}
-            keyExtractor={products=>products._id.toString()}
-            renderItem={({item}) => <ProductCard imageUrls={item.imageUrl} id={item._id} title={item.name} price={item.price} isNew={item.isNew} onPress={() => navigation.push('ProductDetailsScreen')}/>}
-            />
-        );
-        return (
-            <AppText text={`No catalog found.`} color={colors.danger} fontSize={fonts.fontSize.text} alignSelf='center' />
-        );
+      <FlatList
+        horizontal={true}
+        nestedScrollEnabled
+        data={products}
+        keyExtractor={(products) => products._id.toString()}
+        renderItem={({ item }) => (
+          <ProductCard
+            imageUrls={item.imageUrl}
+            id={item._id}
+            title={item.name}
+            price={item.price}
+            isNew={item.isNew}
+            // onPress={(imageUrls, title, price, id) =>
+            //   navigation.push("ProductDetailsScreen", {
+            //     imageUrls,
+            //     id,
+            //     title,
+            //     price,
+            //   })
+            // }
+          />
+        )}
+      />
+    );
+  return (
+    <AppText
+      text={`No catalog found.`}
+      color={colors.danger}
+      fontSize={fonts.fontSize.text}
+      alignSelf="center"
+    />
+  );
 }
 
 export default CatalogList;

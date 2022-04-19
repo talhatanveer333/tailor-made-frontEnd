@@ -1,9 +1,13 @@
 import apiObject from "./apiObject";
 
-const endpoint='/feedbacks/user/';
+const endpoint = "/feedbacks/";
 
-const getUserFeedbacks= (userId) => apiObject.get(endpoint+userId);
+const getUserFeedbacks = (tailorId) => apiObject.get(endpoint + tailorId);
 
-export default{
-    getUserFeedbacks,
-}
+const postTailorFeedbak = (tailorId, rating, comment) =>
+  apiObject.post(endpoint, { tailorId, comment, rating });
+
+export default {
+  getUserFeedbacks,
+  postTailorFeedbak,
+};

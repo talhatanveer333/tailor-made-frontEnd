@@ -43,7 +43,6 @@ export default function TailorHomeCard({
   }, []);
 
   return (
-<<<<<<< HEAD
     <Pressable onPress={onPress}>
       <View
         style={{
@@ -52,7 +51,7 @@ export default function TailorHomeCard({
           alignItems: "center",
           width: scale(180),
           height: scale(190),
-          marginBottom: scale(12),
+          marginBottom: scale(25),
         }}
       >
         <View
@@ -74,8 +73,8 @@ export default function TailorHomeCard({
         </View>
         <View style={{ paddingTop: 10, alignItems: "center" }}>
           <AppText
-            numberOfLines={1}
             text={name}
+            numberOfLines={1}
             fontSize={fonts.fontSize.headingPro}
             fontWeight={fonts.fontWiegth.heading}
             color={colors.text}
@@ -90,34 +89,6 @@ export default function TailorHomeCard({
           <View style={{ flexDirection: "row", marginTop: scale(3) }}>
             {ratingStars}
           </View>
-=======
-      <Pressable onPress={onPress}>
-        <View style={{
-            paddingHorizontal:scale(15),
-            paddingVertical:scale(15),
-            alignItems:'center',
-            width:scale(180),
-            height:scale(190),
-            marginBottom:scale(25),
-        }}>
-            <View style={{
-                borderRadius:100,
-                overflow:'hidden',
-                borderWidth:2,
-                borderColor:colors.third
-                }}>
-                <Image resizeMode={'cover'} source={{
-                    uri:image,
-                    width:scale(100),
-                    height:scale(100),
-                }}/>
-            </View>
-            <View style={{paddingTop:10, alignItems:'center'}}>
-                <AppText text={name} fontSize={fonts.fontSize.headingPro} fontWeight={fonts.fontWiegth.heading} color={colors.text} />
-                <AppText numberOfLines={2} text={`${description}\n${address.street}, ${address.province}`} fontSize={fonts.fontSize.heading} fontWeight={fonts.fontWiegth.text} color={colors.hint} />
-                <View style={{flexDirection:'row', marginTop:scale(3)}}>{ratingStars}</View>
-            </View>
->>>>>>> 763ee3f93061c9e14bd05c001257ca4dd6c69528
         </View>
       </View>
     </Pressable>
