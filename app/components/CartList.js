@@ -73,15 +73,21 @@ function CartList(props) {
 
   const setCartData = async () => {
     try {
+      //cartStorage.removeCartData();
+      //setCartItems(null);
       setRefreshing(true);
       const result = await cartStorage.getCartData();
-      //console.error("getting cart data");
-      console.log(result);
       setCartItems(result);
       setRefreshing(false);
     } catch (e) {
       console.error(e);
     }
+  };
+  const handleDelete = (item) => {
+    let items = cartItems.filter((i) => i._id !== item._id);
+    //console.log(items);
+    cartStorage.storeCartData(items);
+    setCartItems(items);
   };
 
   return (
@@ -91,7 +97,9 @@ function CartList(props) {
       nestedScrollEnabled
       numColumns="1"
       data={cartItems}
-      keyExtractor={(cartItems) => cartItems._id.toString()}
+      keyExtractor={(cartItems) =>
+        `${cartItems._id.toString()}${cartItems.name.toString()}`
+      }
       renderItem={({ item }) => (
         <CartCard
           title={item.name}
@@ -100,7 +108,7 @@ function CartList(props) {
           details={item.description}
           imageUrl={item.imageUrl}
           onPress={() => {
-            setCart(cartItems);
+            handleDelete(item);
           }}
         />
       )}
