@@ -121,7 +121,7 @@ function TailorDetailsScreen({ route, props }) {
         >
           <AppText
             numberOfLines={1}
-            text="Testimoials"
+            text="Testimonials"
             fontSize={fonts.fontSize.headingPro1}
             fontWieght={fonts.fontWiegth.headingPro}
             color={colors.third}

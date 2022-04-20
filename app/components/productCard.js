@@ -89,14 +89,14 @@ function ProductCard({ id, imageUrls, title, description, price, onPress }) {
         >
           <AppText
             text={title}
-            fontSize={fonts.fontSize.headingPro}
+            fontSize={fonts.fontSize.heading}
             fontWeight={fonts.fontWiegth.headingPro}
             fontFamily={fonts.fontFamily.funky}
             color={colors.third}
           />
           <AppText
-            text={`${price} RS`}
-            fontSize={fonts.fontSize.headingPro}
+            text={`${price} Extra`}
+            fontSize={fonts.fontSize.heading}
             fontWeight={fonts.fontWiegth.headingPro}
             fontFamily={fonts.fontFamily.primary}
             color={colors.third}

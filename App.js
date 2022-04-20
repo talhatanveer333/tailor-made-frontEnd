@@ -17,20 +17,9 @@ export default function App() {
   const [cart, setCart] = useState();
   const [isAppReady, setIsAppReady] = useState(false);
 
-  const restoreCart = async () => {
-    const cart = await CartStorage.getCartData();
-    if (cart) setCart(cart);
-    else
-      setCart({
-        total: 0,
-        products: [],
-      });
-  };
   const restoreUserData = async () => {
     const user = await AuthStore.getUser();
     if (user) setUser(user);
-
-    //await restoreCart();
   };
 
   if (!isAppReady)
@@ -46,14 +35,12 @@ export default function App() {
   return (
     <>
       <AuthContext.Provider value={{ user, setUser }}>
-        <CartContext.Provider value={{ cart, setCart }}>
-          <NavigationContainer>
-            {user ? <AppNavigator /> : <AuthNavigator />}
-            {/* <TempScreen
+        <NavigationContainer>
+          {user ? <AppNavigator /> : <AuthNavigator />}
+          {/* <TempScreen
               tailor={{ imgUrl: "https://picsum.photos/200", name: "Talha" }}
             /> */}
-          </NavigationContainer>
-        </CartContext.Provider>
+        </NavigationContainer>
       </AuthContext.Provider>
 
       <StatusBar style="inverted" />

@@ -7,7 +7,9 @@ import fonts from "../config/fonts";
 import AppText from "../components/AppText";
 import OffersList from "../components/OffersList";
 
-function ProductDetailsScreen({ imageUrls, title, price }) {
+function ProductDetailsScreen({ route }) {
+  const item = route.params.item;
+  //alert(item.imageUrl);
   return (
     <ScrollView style={{ backgroundColor: colors.screenBackground }}>
       <ScrollView
@@ -15,7 +17,7 @@ function ProductDetailsScreen({ imageUrls, title, price }) {
         pagingEnabled
         horizontal
       >
-        {imageUrls.map((url) => {
+        {/* {item.imageUrl.map((url) => {
           <Image
             resizeMode={"cover"}
             source={{
@@ -24,18 +26,26 @@ function ProductDetailsScreen({ imageUrls, title, price }) {
               height: scale(330),
             }}
           />;
-        })}
+        })} */}
+        <Image
+          resizeMode={"cover"}
+          source={{
+            uri: item.imageUrl[0],
+            width: scale(350),
+            height: scale(330),
+          }}
+        />
       </ScrollView>
       <View style={{ padding: scale(10), justifyContent: "center" }}>
         <AppText
-          text={title}
+          text={item.name}
           fontFamily={fonts.fontFamily.primary}
           fontSize={fonts.fontSize.headingPro1}
           fontWeight={fonts.fontWiegth.headingPro1}
           color={colors.third}
         />
         <AppText
-          text={`${price} RS`}
+          text={`${item.price} RS`}
           fontFamily={fonts.fontFamily.primary}
           fontSize={fonts.fontSize.headingPro}
           fontWeight={fonts.fontWiegth.headingPro}
@@ -43,13 +53,13 @@ function ProductDetailsScreen({ imageUrls, title, price }) {
         />
         <AppText
           paddingTop={scale(25)}
-          text="Offers"
+          text="Choose from below"
           fontFamily={fonts.fontFamily.primary}
-          fontSize={fonts.fontSize.headingPro1}
+          fontSize={fonts.fontSize.headingPro}
           fontWeight={fonts.fontWiegth.headingPro1}
           color={colors.third}
         />
-        <OffersList />
+        <OffersList product={item} />
       </View>
     </ScrollView>
   );

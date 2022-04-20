@@ -69,14 +69,11 @@ function CatalogList({ tailorId }) {
             title={item.name}
             price={item.price}
             isNew={item.isNew}
-            // onPress={(imageUrls, title, price, id) =>
-            //   navigation.push("ProductDetailsScreen", {
-            //     imageUrls,
-            //     id,
-            //     title,
-            //     price,
-            //   })
-            // }
+            onPress={() =>
+              navigation.push("ProductDetailsScreen", {
+                item,
+              })
+            }
           />
         )}
       />

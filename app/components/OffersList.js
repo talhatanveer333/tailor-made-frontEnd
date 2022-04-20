@@ -1,55 +1,68 @@
-import React from 'react';
-import {FlatList} from 'react-native';
-import ProductCard from './ProductCard';
+import React from "react";
+import { FlatList } from "react-native";
 
-const offers=[
-    {
-        id:1,
-        name:'Standard',
-        price:1099,
-        image:`https://picsum.photos/200/300?random=${Math.random() * 10}`,
-    },
-    {
-        id:2,
-        name:'Urgent',
-        price:1300,
-        image:`https://picsum.photos/200/300?random=${Math.random() * 10}`,
-    },
-    {
-        id:3,
-        name:'Customized',
-        price:1500,
-        image:`https://picsum.photos/200/300?random=${Math.random() * 10}`,
-    },
-    {
-        id:4,
-        name:'2 in 1',
-        price:2000,
-        image:`https://picsum.photos/200/300?random=${Math.random() * 10}`,
-    },
-    {
-        id:5,
-        name:'Urg + Custom',
-        price:2500,
-        image:`https://picsum.photos/200/300?random=${Math.random() * 10}`,
-    }
-    
-]
+import ProductCard from "./ProductCard";
+import cartStorage from "../cart/cartStorage";
+import { connect } from "formik";
 
+const offers = [
+  {
+    id: 1,
+    name: "Standard",
+    price: 0,
+  },
+  {
+    id: 2,
+    name: "Urgent",
+    price: 1000,
+  },
+  {
+    id: 3,
+    name: "Custom",
+    price: 1300,
+  },
+];
 
-function OffersList(props) {
-    return (
-        <FlatList
-            horizontal={true}
-            nestedScrollEnabled
-            data={offers}
-            keyExtractor={offers=>offers.id.toString()}
-            renderItem={({item}) => <ProductCard  id={item.id} title={item.name} price={item.price} isNew={item.isNew} onPress={()=>addToCart(item)}/>}
-            />
-    );
+function OffersList({ product }) {
+  return (
+    <FlatList
+      horizontal={true}
+      nestedScrollEnabled
+      data={offers}
+      keyExtractor={(offers) => offers.id.toString()}
+      renderItem={({ item: offer }) => (
+        <ProductCard
+          id={offer.id}
+          title={offer.name}
+          price={offer.price}
+          isNew={offer.isNew}
+          onPress={() => addToCart(offer, product)}
+        />
+      )}
+    />
+  );
 }
-function addToCart(item){
-    console.log(item.name);
+function addToCart(offer, product) {
+  //cartStorage.removeCartData();
+  console.log(product);
+  try {
+    let cartItem = {};
+    cartItem._id = product._id;
+    cartItem.name = product.name;
+    cartItem.price = product.price;
+    cartItem.description = product.description;
+    cartItem.imageUrl = product.imageUrl[0];
+    cartItem.qty = 1;
+    cartItem.price += offer.price;
+    //setting up the total price and constraints
+
+    cartStorage.addOneItem(cartItem);
+    alert(
+      `${cartItem.name} added in the cart with total amount of ${cartItem.price}`
+    );
+  } catch (e) {
+    console.error("Err: " + e);
+  }
 }
 
 export default OffersList;
