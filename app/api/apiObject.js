@@ -2,8 +2,8 @@ import { create } from "apisauce";
 import AuthStore from "../auth/authStorage";
 
 const apiObject = create({
-  baseURL: "http://10.10.17.46:3000/api",
-  //baseURL: "https://glacial-shore-82980.herokuapp.com/api",
+  //baseURL: "http://10.10.17.46:3000/api",
+  baseURL: "https://smart-tailor.herokuapp.com/api",
 });
 
 apiObject.addAsyncRequestTransform(async (request) => {
