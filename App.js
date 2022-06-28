@@ -11,6 +11,7 @@ import CartStorage from "./app/cart/cartStorage";
 import CartContext from "./app/cart/context";
 import colors from "./app/config/colors";
 import TempScreen from "./app/screens/FeedbackScreen";
+import { StripeProvider } from "@stripe/stripe-react-native";
 
 export default function App() {
   const [user, setUser] = useState();
@@ -34,14 +35,16 @@ export default function App() {
 
   return (
     <>
-      <AuthContext.Provider value={{ user, setUser }}>
-        <NavigationContainer>
-          {user ? <AppNavigator /> : <AuthNavigator />}
-          {/* <TempScreen
+      <StripeProvider publishableKey="pk_test_51LDvPeAThn3fA2tcWhGVAaWjjRK67Pecj60QOcDHmZO9fFGwHWFm56uhUAXj3Qb7FP2qv8iWTmdDn3YZpO3f3ncR00VZbYx6yG">
+        <AuthContext.Provider value={{ user, setUser }}>
+          <NavigationContainer>
+            {user ? <AppNavigator /> : <AuthNavigator />}
+            {/* <TempScreen
               tailor={{ imgUrl: "https://picsum.photos/200", name: "Talha" }}
             /> */}
-        </NavigationContainer>
-      </AuthContext.Provider>
+          </NavigationContainer>
+        </AuthContext.Provider>
+      </StripeProvider>
 
       <StatusBar style="inverted" />
     </>

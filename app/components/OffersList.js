@@ -43,7 +43,6 @@ function OffersList({ product }) {
   );
 }
 function addToCart(offer, product) {
-  //cartStorage.removeCartData();
   console.log(product);
   try {
     let cartItem = {};
@@ -53,8 +52,8 @@ function addToCart(offer, product) {
     cartItem.description = product.description;
     cartItem.imageUrl = product.imageUrl[0];
     cartItem.qty = 1;
-    cartItem.price += offer.price;
-    //setting up the total price and constraints
+    cartItem.price += offer.price; //setting up the total price and constraints
+    cartItem.author = product.author;
 
     cartStorage.addOneItem(cartItem);
     alert(
